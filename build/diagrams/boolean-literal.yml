@@ -1,0 +1,8 @@
+type: Choice
+options:
+  -
+    type: Terminal
+    text: true
+  -
+    type: Terminal
+    text: false

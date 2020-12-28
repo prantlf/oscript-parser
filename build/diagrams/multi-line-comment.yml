@@ -1,0 +1,11 @@
+-
+  type: Terminal
+  text: /*
+-
+  type: ZeroOrMore
+  item:
+    type: Terminal
+    text: Anything but */
+-
+  type: Terminal
+  text: "*/"

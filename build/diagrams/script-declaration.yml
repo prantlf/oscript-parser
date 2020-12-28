@@ -1,0 +1,37 @@
+-
+  type: Stack
+  items:
+    -
+      type: Optional
+      item:
+        type: NonTerminal
+        text: Modifier
+        href: "#modifier"
+    -
+      type: Terminal
+      text: script
+    -
+      type: NonTerminal
+      text: Identifier
+      href: "#identifier"
+-
+  type: Terminal
+  text: \r?\n
+-
+  type: ZeroOrMore
+  item:
+    type: NonTerminal
+    text: Statement
+    href: "#statement"
+-
+  type: ZeroOrMore
+  item:
+    type: NonTerminal
+    text: FunctionDeclaration
+    href: "#functiondeclaration"
+-
+  type: Terminal
+  text: \r?\n
+-
+  type: Terminal
+  text: endscript

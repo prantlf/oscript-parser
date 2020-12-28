@@ -1,0 +1,23 @@
+type: Choice
+options:
+  -
+    type: Sequence
+    items:
+      -
+        type: Terminal
+        text: "("
+      -
+        type: NonTerminal
+        text: Expression
+        href: "#expression"
+      -
+        type: Terminal
+        text: ")"
+  -
+    type: NonTerminal
+    text: Identifier
+    href: "#identifier"
+  -
+    type: NonTerminal
+    text: Literal
+    href: "#literal"

@@ -1,0 +1,48 @@
+-
+  type: Terminal
+  text: for
+-
+  type: Terminal
+  text: (
+-
+  type: Stack
+  items:
+    -
+      type: Optional
+      item:
+        type: NonTerminal
+        text: Expression
+        href: "#expression"
+    -
+      type: Terminal
+      text: \r?\n or ;
+    -
+      type: Optional
+      item:
+        type: NonTerminal
+        text: Expression
+        href: "#expression"
+    -
+      type: Terminal
+      text: \r?\n or ;
+    -
+      type: Optional
+      item:
+        type: NonTerminal
+        text: Expression
+        href: "#expression"
+-
+  type: Terminal
+  text: )
+-
+  type: Terminal
+  text: \r?\n or ;
+-
+  type: ZeroOrMore
+  item:
+    type: NonTerminal
+    text: Statement
+    href: "#statement"
+-
+  type: Terminal
+  text: end

@@ -1,0 +1,79 @@
+type: Stack
+items:
+  -
+    type: Sequence
+    items:
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: Terminal
+        text: "-"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: Terminal
+        text: "-"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+  -
+    type: Terminal
+    text: T
+  -
+    type: Sequence
+    items:
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: Terminal
+        text: ":"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: Terminal
+        text: ":"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"

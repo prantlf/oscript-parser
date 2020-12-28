@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="railroad-diagram" width="293" height="122" viewBox="0 0 293 122">
+  <defs>
+    <style type="text/css"><![CDATA[
+      path {
+        stroke-width: 3;
+        stroke: black;
+        fill: rgba(0,0,0,0);
+      }
+      text {
+        font: bold 14px monospace;
+        text-anchor: middle;
+        white-space: pre;
+        fill: black;
+      }
+      text.diagram-text {
+        font-size: 12px;
+      }
+      text.diagram-arrow {
+        font-size: 16px;
+      }
+      text.label {
+        text-anchor: start;
+      }
+      text.comment {
+        font: italic 12px monospace;
+      }
+      rect {
+        stroke-width: 3;
+        stroke: black;
+        fill: hsl(180,100%,90%);
+      }
+      rect[rx] {
+        fill: hsl(120,100%,90%);
+      }
+      rect.group-box {
+        stroke: gray;
+        stroke-dasharray: 10 5;
+        fill: none;
+      }
+      path.diagram-text {
+        stroke-width: 3;
+        stroke: black;
+        fill: white;
+        cursor: help;
+      }
+      g.diagram-text:hover path.diagram-text {
+        fill: #eee;
+      }
+    ]]></style>
+  </defs>
+
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 51v20m10 -20v20m-10 -10h20"></path>
+</g>
+<g>
+<path d="M40 61h0"></path>
+<path d="M253 61h0"></path>
+<path d="M40 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
+<g class="non-terminal">
+<path d="M60 31h0"></path>
+<path d="M233 31h0"></path>
+<rect x="60" y="20" width="173" height="22"></rect>
+<a xlink:href="#packagedeclaration"><text x="146.5" y="35">PackageDeclaration</text>
+</a>
+</g>
+<path d="M233 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
+<path d="M40 61h20"></path>
+<g class="non-terminal">
+<path d="M60 61h25.5"></path>
+<path d="M207.5 61h25.5"></path>
+<rect x="85.5" y="50" width="122" height="22"></rect>
+<a xlink:href="#scriptsource"><text x="146.5" y="65">ScriptSource</text>
+</a>
+</g>
+<path d="M233 61h20"></path>
+<path d="M40 61a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
+<g class="non-terminal">
+<path d="M60 91h34"></path>
+<path d="M199 91h34"></path>
+<rect x="94" y="80" width="105" height="22"></rect>
+<a xlink:href="#dumpsource"><text x="146.5" y="95">DumpSource</text>
+</a>
+</g>
+<path d="M233 91a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
+</g>
+<path d="M 253 61 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>

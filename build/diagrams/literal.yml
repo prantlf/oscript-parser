@@ -1,0 +1,30 @@
+type: Choice
+options:
+  -
+    type: NonTerminal
+    text: StringLiteral
+    href: "#stringliteral"
+  -
+    type: NonTerminal
+    text: IntegerLiteral
+    href: "#integerliteral"
+  -
+    type: NonTerminal
+    text: RealLiteral
+    href: "#realliteral"
+  -
+    type: NonTerminal
+    text: BooleanLiteral
+    href: "#booleanliteral"
+  -
+    type: NonTerminal
+    text: DateLiteral
+    href: "#dateliteral"
+  -
+    type: NonTerminal
+    text: Xlate
+    href: "#xlate"
+  -
+    type: NonTerminal
+    text: UndefinedLiteral
+    href: "#undefinedliteral"

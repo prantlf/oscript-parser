@@ -1,0 +1,107 @@
+.TH osparse "1" "April 14, 2020" "" "osparse manual"
+
+.SH NAME
+osparse - OScript parser
+
+.SH SYNOPSIS
+.B osparse
+[--[no]-tokens] [--[no]-preprocessor] [--[no]-comments]
+.RS
+[--[no]-whitespace] [--[no]-locations] [--[no]-ranges]
+.br
+[--[no]-raw] [-D|--define
+.I name
+]
+.br
+[-S|--source
+.I
+type
+] [-O|--old-version] [-t|--tokenize]
+.br
+[-c|--compact] [-s|--silent] [-v|--verbose]
+.br
+[-p|--performance] [-V|--version] [-h|--help]
+[
+.I file
+]
+.RE
+
+.SH DESCRIPTION
+.B
+osparse is a parser producing JSON-formatted Abstract Syntax Tree or (just tokens) for OScript programs.
+
+.SH OPTIONS
+.B
+.IP "--[no]-tokens"
+include lexer tokens. defaults to false
+.B
+.IP "--[no]-preprocessor"
+include preprocessor directives. defaults to false
+.B
+.IP "--[no]-comments"
+include comments. defaults to false
+.B
+.IP "--[no]-whitespace"
+include whitespace. defaults to false
+.B
+.IP "--[no]-locations"
+store location data on syntax nodes. defaults to false
+.B
+.IP "--[no]-ranges"
+store start and end token ranges. defaults to false
+.B
+.IP "--[no]-raw"
+store raw literals. defaults to false
+.B
+.IP "-D|--define name"
+define a named value for preprocessor
+.B
+.IP "-S|--source type"
+source type is object, script or dump. defaults to script
+.B
+.IP "-O|--old-version"
+expect the old version of OScript. defaults to false
+.B
+.IP "-t|--tokenize"
+print tokens instead of AST
+.B
+.IP "-c, --compact"
+print without indenting and whitespace
+.B
+.IP "-s, --silent"
+suppress output
+.B
+.IP "-v|--verbose"
+print error stacktrace
+.B
+.IP "-p|--performance"
+print parsing timing
+.B
+.IP "-V, --version"
+print version number
+.B
+.IP "-h, --help"
+print usage instructions
+
+.RE
+If no file name is provided, standard input will be read. If no source type
+is provided, it will be inferred from the file extension: ".os" -> object,
+".e" -> script, ".osx" -> dump. The source type object will enable the new
+OScript language and source type dump the old one by default.
+
+.SH EXAMPLES
+.B
+.IP "echo 'foo = ""bar""' | osparse --no-comments -S script"
+Print the AST of a code snippet.
+.B
+.IP "osparse -t foo.os"
+Print the list of tokens for the code in the file.
+
+.SH BUGS
+osparse's bug tracker is located at <https://github.com/prantlf/oscript-parser/issues>
+
+.SH DOCUMENTATION
+See the website for documentation <https://prantlf.github.io/oscript-parser/>
+
+.SH AUTHOR
+Currently maintained by Ferdinand Prantl <prantlf@gmail.com>

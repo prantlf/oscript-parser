@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - 'v[0-9]+.*'
+
+jobs:
+  create_release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
+    steps:
+    - name: Version
+      id: get_version
+      run: echo "::set-output name=version::$(echo "${{ github.ref }}" | sed 's/[^.0-9]\+//')"
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Describe
+      run: |
+        CHANGELOG=$(awk -v ver=${{ steps.get_version.outputs.version }} '/## / { if (p) { exit }; if ($2 == ver) { p=1; next } } p' CHANGELOG.md)
+        echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+        echo "$CHANGELOG" >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+    - name: Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        body: ${{ env.CHANGELOG }}

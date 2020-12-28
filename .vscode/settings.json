@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.nyc_output": true,
+    "**/coverage": true,
+    "**/dist/bin": true,
+    "**/dist/*.[jm]*": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "osparse",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/dist/bin/osparse",
+      "args": ["-S", "script", "test/snippets/test.os"],
+      "stopOnEntry": true
+    },
+    {
+      "name": "oslint",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/dist/bin/oslint",
+      "args": ["-S", "script", "test/snippets/test.os"],
+      "stopOnEntry": true
+    },
+    {
+      "name": "tokenize",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/test/tokenize",
+      "env": {
+        // "SNIPPETS": "test"
+      },
+      "runtimeArgs": ["-r", "esm"],
+      "stopOnEntry": true
+    },
+    {
+      "name": "parse",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/test/parse",
+      "env": {
+        // "SNIPPETS": "test"
+      },
+      "runtimeArgs": ["-r", "esm"],
+      "stopOnEntry": true
+    }
+  ]
+}

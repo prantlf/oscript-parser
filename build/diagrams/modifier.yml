@@ -1,0 +1,14 @@
+type: Choice
+options:
+  -
+    type: NonTerminal
+    text: override
+    href: "#override"
+  -
+    type: NonTerminal
+    text: public
+    href: "#public"
+  -
+    type: NonTerminal
+    text: private
+    href: "#private"

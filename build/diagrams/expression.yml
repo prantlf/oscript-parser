@@ -1,0 +1,23 @@
+type: Choice
+options:
+  -
+    type: NonTerminal
+    text: BinaryExpression
+    href: "#binaryexpression"
+  -
+    type: Sequence
+    items:
+      -
+        type: Terminal
+        text: "?"
+      -
+        type: NonTerminal
+        text: Expression
+        href: "#expression"
+      -
+        type: Terminal
+        text: ":"
+      -
+        type: NonTerminal
+        text: Expression
+        href: "#expression"

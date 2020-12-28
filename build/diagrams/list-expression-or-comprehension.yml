@@ -1,0 +1,46 @@
+type: Optional
+item:
+  type: Choice
+  options:
+    -
+      type: OneOrMore
+      item:
+        type: NonTerminal
+        text: ListElement
+        href: "#listelement"
+      repeat:
+        type: Terminal
+        text: ","
+    -
+      type: Sequence
+      items:
+        -
+          type: NonTerminal
+          text: ListElement
+          href: "#listelement"
+        -
+          type: Terminal
+          text: for
+        -
+          type: NonTerminal
+          text: Identifier
+          href: "#identifier"
+        -
+          type: Terminal
+          text: in
+        -
+          type: NonTerminal
+          text: Expression
+          href: "#expression"
+        -
+          type: Optional
+          item:
+            type: Sequence
+            items:
+              -
+                type: Terminal
+                text: if
+              -
+                type: NonTerminal
+                text: Expression
+                href: "#expression"

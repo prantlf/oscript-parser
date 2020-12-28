@@ -1,0 +1,49 @@
+-
+  type: Stack
+  items:
+    -
+      type: NonTerminal
+      text: Modifier
+      href: "#modifier"
+    -
+      type: Terminal
+      text: object
+    -
+      type: NonTerminal
+      text: Identifier
+      href: "#identifier"
+-
+  type: Optional
+  item:
+    type: Sequence
+    items:
+      -
+        type: Terminal
+        text: inherits
+      -
+        type: NonTerminal
+        text: ObjectName
+        href: "#objectname"
+-
+  type: Terminal
+  text: \r?\n
+-
+  type: ZeroOrMore
+  item:
+    type: Choice
+    options:
+      -
+        type: NonTerminal
+        text: FeatureDeclaration
+        href: "#featuredeclaration"
+      -
+        type: NonTerminal
+        text: FunctionDeclaration
+        href: "#functiondeclaration"
+      -
+        type: NonTerminal
+        text: ScriptDeclaration
+        href: "#scriptdeclaration"
+-
+  type: Terminal
+  text: end

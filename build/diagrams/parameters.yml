@@ -1,0 +1,30 @@
+type: Choice
+options:
+  -
+    type: Skip
+  -
+    type: Terminal
+    text: ...
+  -
+    type: Sequence
+    items:
+      -
+        type: OneOrMore
+        item:
+          type: NonTerminal
+          text: Parameter
+          href: "#parameter"
+        repeat:
+          type: Terminal
+          text: ","
+      -
+        type: Optional
+        item:
+          type: Sequence
+          items:
+            -
+              type: Terminal
+              text: ","
+            -
+              type: Terminal
+              text: ...

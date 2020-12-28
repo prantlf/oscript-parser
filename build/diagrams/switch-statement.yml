@@ -1,0 +1,51 @@
+-
+  type: Stack
+  items:
+    -
+      type: Terminal
+      text: switch
+    -
+      type: NonTerminal
+      text: Expression
+      href: "#expression"
+    -
+      type: Terminal
+      text: \r?\n or ;
+-
+  type: ZeroOrMore
+  item:
+    type: Sequence
+    items:
+      -
+        type: Choice
+        options:
+          -
+            type: Sequence
+            items:
+              -
+                type: Terminal
+                text: case
+              -
+                type: OneOrMore
+                item:
+                  type: NonTerminal
+                  text: Expression
+                  href: "#expression"
+                repeat:
+                  type: Terminal
+                  text: ","
+          -
+            type: Terminal
+            text: default
+      -
+        type: ZeroOrMore
+        item:
+          type: NonTerminal
+          text: Statement
+          href: "#statement"
+      -
+        type: Terminal
+        text: end
+-
+  type: Terminal
+  text: end

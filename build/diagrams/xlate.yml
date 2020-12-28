@@ -1,0 +1,17 @@
+-
+  type: Terminal
+  text: "["
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"
+-
+  type: Terminal
+  text: "."
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"
+-
+  type: Terminal
+  text: "]"

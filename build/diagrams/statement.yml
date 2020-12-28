@@ -1,0 +1,77 @@
+type: Choice
+options:
+  -
+    type: NonTerminal
+    text: LabelStatement
+    href: "#labelstatement"
+  -
+    type: Sequence
+    items:
+      -
+        type: Choice
+        options:
+          -
+            type: NonTerminal
+            text: VariableDeclaration
+            href: "#variabledeclaration"
+          -
+            type: NonTerminal
+            text: Expression
+            href: "#expression"
+          -
+            type: NonTerminal
+            text: IfStatement
+            href: "#ifstatement"
+          -
+            type: NonTerminal
+            text: SwitchStatement
+            href: "#switchstatement"
+          -
+            type: NonTerminal
+            text: WhileStatement
+            href: "#whilestatement"
+          -
+            type: NonTerminal
+            text: RepeatStatement
+            href: "#repeatstatement"
+          -
+            type: NonTerminal
+            text: ForStatement
+            href: "#forstatement"
+          -
+            type: NonTerminal
+            text: ForEachStatement
+            href: "#foreachstatement"
+          -
+            type: NonTerminal
+            text: StructuredForStatement
+            href: "#structuredforstatement"
+          -
+            type: NonTerminal
+            text: GotoStatement
+            href: "#gotostatement"
+          -
+            type: NonTerminal
+            text: ReturnStatement
+            href: "#returnstatement"
+          -
+            type: NonTerminal
+            text: BreakStatement
+            href: "#breakstatement"
+          -
+            type: NonTerminal
+            text: ContinueStatement
+            href: "#continuestatement"
+          -
+            type: NonTerminal
+            text: BreakIfStatement
+            href: "#breakifstatement"
+          -
+            type: NonTerminal
+            text: ContinueIfStatement
+            href: "#continueifstatement"
+          -
+            type: Skip
+      -
+        type: Terminal
+        text: \r?\n or ;

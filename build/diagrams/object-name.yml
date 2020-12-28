@@ -1,0 +1,24 @@
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"
+-
+  type: ZeroOrMore
+  item:
+    type: Choice
+    options:
+      -
+        type: NonTerminal
+        text: Identifier
+        href: "#identifier"
+      -
+        type: NonTerminal
+        text: HashQuote
+        href: "#hashquote"
+      -
+        type: NonTerminal
+        text: LegacyAlias
+        href: "#legacyalias"
+  repeat:
+    type: Terminal
+    text: "::"

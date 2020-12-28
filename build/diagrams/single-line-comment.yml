@@ -1,0 +1,8 @@
+-
+  type: Terminal
+  text: //
+-
+  type: ZeroOrMore
+  item:
+    type: Terminal
+    text: Anything but line break

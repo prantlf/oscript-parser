@@ -1,0 +1,26 @@
+-
+  type: Optional
+  item:
+    type: NonTerminal
+    text: Modifier
+    href: "#modifier"
+-
+  type: NonTerminal
+  text: Type
+  href: "#type"
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"
+-
+  type: Optional
+  item:
+    type: Sequence
+    items:
+      -
+        type: Terminal
+        text: =
+      -
+        type: NonTerminal
+        text: Literal
+        href: "#literal"
