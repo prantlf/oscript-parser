@@ -1,0 +1,57 @@
+-
+  type: Choice
+  options:
+    -
+      type: Sequence
+      items:
+        -
+          type: OneOrMore
+          item:
+            type: NonTerminal
+            text: Digit
+            href: "#digit"
+        -
+          type: ZeroOrMore
+          item:
+            type: Sequence
+            items:
+              -
+                type: Terminal
+                text: .
+              -
+                type: ZeroOrMore
+                item:
+                  type: NonTerminal
+                  text: Digit
+                  href: "#digit"
+    -
+      type: Sequence
+      items:
+        -
+          type: Terminal
+          text: .
+        -
+          type: OneOrMore
+          item:
+            type: NonTerminal
+            text: Digit
+            href: "#digit"
+-
+  type: Optional
+  item:
+    type: Sequence
+    items:
+      -
+        type: Terminal
+        text: e
+      -
+        type: Optional
+        item:
+          type: Terminal
+          text: "-"
+      -
+        type: OneOrMore
+        item:
+          type: NonTerminal
+          text: Digit
+          href: "#digit"

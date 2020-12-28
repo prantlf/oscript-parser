@@ -1,0 +1,148 @@
+-
+  type: NonTerminal
+  text: UnaryExpression
+  href: "#unaryexpression"
+-
+  type: OneOrMore
+  item:
+    type: Sequence
+    items:
+      -
+        type: HorizontalChoice
+        items:
+          -
+            type: Choice
+            options:
+              -
+                type: Terminal
+                text: "+"
+              -
+                type: Terminal
+                text: "-"
+              -
+                type: Terminal
+                text: "*"
+              -
+                type: Terminal
+                text: "/"
+              -
+                type: Terminal
+                text: "%"
+              -
+                type: Terminal
+                text: "<<"
+              -
+                type: Terminal
+                text: ">>"
+              -
+                type: Terminal
+                text: "|"
+              -
+                type: Terminal
+                text: "^"
+              -
+                type: Terminal
+                text: "&"
+          -
+            type: Choice
+            options:
+              -
+                type: Terminal
+                text: "=="
+              -
+                type: Terminal
+                text: "!="
+              -
+                type: Terminal
+                text: "<>"
+              -
+                type: Terminal
+                text: "<"
+              -
+                type: Terminal
+                text: "<="
+              -
+                type: Terminal
+                text: ">"
+              -
+                type: Terminal
+                text: ">="
+              -
+                type: Terminal
+                text: in
+              -
+                type: Terminal
+                text: eq
+              -
+                type: Terminal
+                text: ne
+              -
+                type: Terminal
+                text: lt
+              -
+                type: Terminal
+                text: le
+              -
+                type: Terminal
+                text: gt
+              -
+                type: Terminal
+                text: ge
+              -
+                type: Terminal
+                text: "||"
+              -
+                type: Terminal
+                text: "&&"
+              -
+                type: Terminal
+                text: or
+              -
+                type: Terminal
+                text: and
+              -
+                type: Terminal
+                text: xor
+          -
+            type: Choice
+            options:
+              -
+                type: Terminal
+                text: "="
+              -
+                type: Terminal
+                text: "+="
+              -
+                type: Terminal
+                text: "-="
+              -
+                type: Terminal
+                text: "*="
+              -
+                type: Terminal
+                text: "/="
+              -
+                type: Terminal
+                text: "%="
+              -
+                type: Terminal
+                text: "~="
+              -
+                type: Terminal
+                text: "<<="
+              -
+                type: Terminal
+                text: ">>="
+              -
+                type: Terminal
+                text: "|="
+              -
+                type: Terminal
+                text: "&="
+              -
+                type: Terminal
+                text: "^="
+      -
+        type: NonTerminal
+        text: UnaryExpression
+        href: "#unaryexpression"

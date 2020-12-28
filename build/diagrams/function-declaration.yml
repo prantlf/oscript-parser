@@ -1,0 +1,47 @@
+-
+  type: Optional
+  item:
+    type: NonTerminal
+    text: Modifier
+    href: "#modifier"
+-
+  type: Stack
+  items:
+    -
+      type: Terminal
+      text: function
+    -
+      type: Optional
+      item:
+        type: Terminal
+        text: nodebug
+    -
+      type: NonTerminal
+      text: Type
+      href: "#type"
+    -
+      type: NonTerminal
+      text: Identifier
+      href: "#identifier"
+-
+  type: Terminal
+  text: (
+-
+  type: NonTerminal
+  text: Parameters
+  href: "#parameters"
+-
+  type: Terminal
+  text: )
+-
+  type: Terminal
+  text: \r?\n
+-
+  type: ZeroOrMore
+  item:
+    type: NonTerminal
+    text: Statement
+    href: "#statement"
+-
+  type: Terminal
+  text: end

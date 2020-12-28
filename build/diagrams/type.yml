@@ -1,0 +1,236 @@
+type: HorizontalChoice
+items:
+  -
+    type: Choice
+    options:
+      -
+        type: Terminal
+        text: string
+      -
+        type: Terminal
+        text: integer
+      -
+        type: Terminal
+        text: real
+      -
+        type: Terminal
+        text: long
+      -
+        type: Terminal
+        text: boolean
+      -
+        type: Terminal
+        text: date
+      -
+        type: Terminal
+        text: object
+      -
+        type: Terminal
+        text: objref
+      -
+        type: Terminal
+        text: assoc
+      -
+        type: Terminal
+        text: list
+      -
+        type: Terminal
+        text: record
+      -
+        type: Terminal
+        text: recarray
+      -
+        type: Terminal
+        text: bytes
+      -
+        type: Terminal
+        text: error
+      -
+        type: Terminal
+        text: dynamic
+      -
+        type: Terminal
+        text: void
+  -
+    type: Choice
+    options:
+      -
+        type: Terminal
+        text: set
+      -
+        type: Terminal
+        text: hashmap
+      -
+        type: Terminal
+        text: regex
+      -
+        type: Terminal
+        text: file
+      -
+        type: Terminal
+        text: filecopy
+      -
+        type: Terminal
+        text: guid
+      -
+        type: Terminal
+        text: socket
+      -
+        type: Terminal
+        text: patfind
+      -
+        type: Terminal
+        text: patchange
+      -
+        type: Terminal
+        text: frame
+      -
+        type: Terminal
+        text: javaobject
+      -
+        type: Terminal
+        text: restclient
+      -
+        type: Terminal
+        text: ssloptions
+      -
+        type: Terminal
+        text: sqlconnection
+      -
+        type: Terminal
+        text: point
+      -
+        type: Terminal
+        text: dialog
+      -
+        type: Terminal
+        text: vis
+  -
+    type: Choice
+    options:
+      -
+        type: Terminal
+        text: capiconnect
+      -
+        type: Terminal
+        text: capierr
+      -
+        type: Terminal
+        text: capilog
+      -
+        type: Terminal
+        text: capilogin
+      -
+        type: Terminal
+        text: dapinode
+      -
+        type: Terminal
+        text: dapiversion
+      -
+        type: Terminal
+        text: dapisession
+      -
+        type: Terminal
+        text: dapistream
+      -
+        type: Terminal
+        text: uapisession
+      -
+        type: Terminal
+        text: uapiuser
+      -
+        type: Terminal
+        text: wapisession
+      -
+        type: Terminal
+        text: wapimap
+      -
+        type: Terminal
+        text: wapimaptask
+      -
+        type: Terminal
+        text: wapisubwork
+      -
+        type: Terminal
+        text: wapiwork
+      -
+        type: Terminal
+        text: mailmessage
+      -
+        type: Terminal
+        text: pop3session
+      -
+        type: Terminal
+        text: smtpsession
+      -
+        type: Terminal
+        text: ipoolobject
+      -
+        type: Terminal
+        text: ipoolconnection
+      -
+        type: Terminal
+        text: ipooltransaction
+  -
+    type: Choice
+    options:
+      -
+        type: Terminal
+        text: saxparser
+      -
+        type: Terminal
+        text: domparser
+      -
+        type: Terminal
+        text: xslprocessor
+      -
+        type: Terminal
+        text: domnode
+      -
+        type: Terminal
+        text: domtext
+      -
+        type: Terminal
+        text: domattr
+      -
+        type: Terminal
+        text: domentity
+      -
+        type: Terminal
+        text: domcomment
+      -
+        type: Terminal
+        text: domelement
+      -
+        type: Terminal
+        text: domnotation
+      -
+        type: Terminal
+        text: domnodelist
+      -
+        type: Terminal
+        text: domdocument
+      -
+        type: Terminal
+        text: domcdatasection
+      -
+        type: Terminal
+        text: domdocumenttype
+      -
+        type: Terminal
+        text: domnamednodemap
+      -
+        type: Terminal
+        text: domcharacterdata
+      -
+        type: Terminal
+        text: domimplementation
+      -
+        type: Terminal
+        text: domentityreference
+      -
+        type: Terminal
+        text: domdocumentfragment
+      -
+        type: Terminal
+        text: domprocessinginstruction

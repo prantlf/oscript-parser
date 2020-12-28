@@ -1,0 +1,9 @@
+-
+  type: Optional
+  item:
+    type: Terminal
+    text: "@"
+-
+  type: NonTerminal
+  text: Expression
+  href: "#expression"

@@ -1,0 +1,16 @@
+type: OneOrMore
+item:
+  type: Choice
+  options:
+    -
+      type: Terminal
+      text:  " "
+    -
+      type: Terminal
+      text: \t
+    -
+      type: Terminal
+      text: \v
+    -
+      type: Terminal
+      text: \f

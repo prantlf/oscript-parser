@@ -1,0 +1,14 @@
+-
+  type: Terminal
+  text: set
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"
+-
+  type: Terminal
+  text: =
+-
+  type: NonTerminal
+  text: Literal
+  href: "#literal"

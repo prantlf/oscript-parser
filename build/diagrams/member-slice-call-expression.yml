@@ -1,0 +1,84 @@
+-
+  type: Choice
+  options:
+    -
+      type: NonTerminal
+      text: PrimaryExpression
+      href: "#primaryexpression"
+    -
+      type: Sequence
+      items:
+        -
+          type: Terminal
+          text: "."
+        -
+          type: NonTerminal
+          text: MemberExpression
+          href: "#memberexpression"
+-
+  type: ZeroOrMore
+  item:
+    type: Choice
+    options:
+      -
+        type: Sequence
+        items:
+          -
+            type: Terminal
+            text: "."
+          -
+            type: NonTerminal
+            text: MemberExpression
+            href: "#memberexpression"
+      -
+        type: Sequence
+        items:
+          -
+            type: Terminal
+            text: "["
+          -
+            type: Choice
+            options:
+              -
+                type: Sequence
+                items:
+                  -
+                    type: Optional
+                    item:
+                      type: NonTerminal
+                      text: Expression
+                      href: "#expression"
+                  -
+                    type: Terminal
+                    text: ":"
+                  -
+                    type: Optional
+                    item:
+                      type: NonTerminal
+                      text: Expression
+                      href: "#expression"
+              -
+                type: NonTerminal
+                text: Expression
+                href: "#expression"
+          -
+            type: Terminal
+            text: "]"
+      -
+        type: Sequence
+        items:
+          -
+            type: Terminal
+            text: "("
+          -
+            type: ZeroOrMore
+            item:
+              type: NonTerminal
+              text: Expression
+              href: "#expression"
+            repeat:
+              type: Terminal
+              text: ","
+          -
+            type: Terminal
+            text: ")"

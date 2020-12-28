@@ -1,0 +1,21 @@
+-
+  type: ZeroOrMore
+  item:
+    type: Choice
+    options:
+      -
+        type: Terminal
+        text: "-"
+      -
+        type: Terminal
+        text: "!"
+      -
+        type: Terminal
+        text: "~"
+      -
+        type: Terminal
+        text: not
+-
+  type: NonTerminal
+  text: MemberSliceCallExpression
+  href: "#memberslicecallexpression"

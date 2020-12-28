@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="railroad-diagram" width="575" height="71" viewBox="0 0 575 71">
+  <defs>
+    <style type="text/css"><![CDATA[
+      path {
+        stroke-width: 3;
+        stroke: black;
+        fill: rgba(0,0,0,0);
+      }
+      text {
+        font: bold 14px monospace;
+        text-anchor: middle;
+        white-space: pre;
+        fill: black;
+      }
+      text.diagram-text {
+        font-size: 12px;
+      }
+      text.diagram-arrow {
+        font-size: 16px;
+      }
+      text.label {
+        text-anchor: start;
+      }
+      text.comment {
+        font: italic 12px monospace;
+      }
+      rect {
+        stroke-width: 3;
+        stroke: black;
+        fill: hsl(180,100%,90%);
+      }
+      rect[rx] {
+        fill: hsl(120,100%,90%);
+      }
+      rect.group-box {
+        stroke: gray;
+        stroke-dasharray: 10 5;
+        fill: none;
+      }
+      path.diagram-text {
+        stroke-width: 3;
+        stroke: black;
+        fill: white;
+        cursor: help;
+      }
+      g.diagram-text:hover path.diagram-text {
+        fill: #eee;
+      }
+    ]]></style>
+  </defs>
+
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20"></path>
+</g>
+<g>
+<path d="M40 40h0"></path>
+<path d="M168 40h0"></path>
+<path d="M40 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
+<g>
+<path d="M60 20h88"></path>
+</g>
+<path d="M148 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
+<path d="M40 40h20"></path>
+<g class="non-terminal">
+<path d="M60 40h0"></path>
+<path d="M148 40h0"></path>
+<rect x="60" y="29" width="88" height="22"></rect>
+<a xlink:href="#modifier"><text x="104" y="44">Modifier</text>
+</a>
+</g>
+<path d="M148 40h20"></path>
+</g>
+<path d="M168 40h10"></path>
+<g class="non-terminal">
+<path d="M178 40h0"></path>
+<path d="M232 40h0"></path>
+<rect x="178" y="29" width="54" height="22"></rect>
+<a xlink:href="#type"><text x="205" y="44">Type</text>
+</a>
+</g>
+<path d="M232 40h10"></path>
+<path d="M242 40h10"></path>
+<g class="non-terminal">
+<path d="M252 40h0"></path>
+<path d="M357 40h0"></path>
+<rect x="252" y="29" width="105" height="22"></rect>
+<a xlink:href="#identifier"><text x="304.5" y="44">Identifier</text>
+</a>
+</g>
+<path d="M357 40h10"></path>
+<g>
+<path d="M367 40h0"></path>
+<path d="M535 40h0"></path>
+<path d="M367 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
+<g>
+<path d="M387 20h128"></path>
+</g>
+<path d="M515 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
+<path d="M367 40h20"></path>
+<g>
+<path d="M387 40h0"></path>
+<path d="M515 40h0"></path>
+<g class="terminal">
+<path d="M387 40h0"></path>
+<path d="M415.5 40h0"></path>
+<rect x="387" y="29" width="28.5" height="22" rx="10" ry="10"></rect>
+<text x="401.25" y="44">=</text>
+</g>
+<path d="M415.5 40h10"></path>
+<path d="M425.5 40h10"></path>
+<g class="non-terminal">
+<path d="M435.5 40h0"></path>
+<path d="M515 40h0"></path>
+<rect x="435.5" y="29" width="79.5" height="22"></rect>
+<a xlink:href="#literal"><text x="475.25" y="44">Literal</text>
+</a>
+</g>
+</g>
+<path d="M515 40h20"></path>
+</g>
+<path d="M 535 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>

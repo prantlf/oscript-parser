@@ -1,0 +1,17 @@
+-
+  type: Terminal
+  text: "`"
+-
+  type: ZeroOrMore
+  item:
+    type: Choice
+    options:
+      -
+        type: Terminal
+        text: "Anything but ``"
+      -
+        type: Terminal
+        text: "``"
+-
+  type: Terminal
+  text: "`"

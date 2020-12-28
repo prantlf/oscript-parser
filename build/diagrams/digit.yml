@@ -1,0 +1,11 @@
+type: Choice
+options:
+  -
+    type: Terminal
+    text: 0
+  -
+    type: Comment
+    text: ..
+  -
+    type: Terminal
+    text: 9

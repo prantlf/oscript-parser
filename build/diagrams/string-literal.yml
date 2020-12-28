@@ -1,0 +1,14 @@
+type: Choice
+options:
+  -
+    type: NonTerminal
+    text: SingleQuotedStringLiteral
+    href: "#singlequotedstringliteral"
+  -
+    type: NonTerminal
+    text: DoubleQuotedStringLiteral
+    href: "#doublequotedstringliteral"
+  -
+    type: NonTerminal
+    text: BackQuotedStringLiteral
+    href: "#backquotedstringliteral"

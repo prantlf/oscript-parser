@@ -1,0 +1,15 @@
+type: Choice
+normalIndex: 1
+options:
+  -
+    type: NonTerminal
+    text: PackageDeclaration
+    href: "#packagedeclaration"
+  -
+    type: NonTerminal
+    text: ScriptSource
+    href: "#scriptsource"
+  -
+    type: NonTerminal
+    text: DumpSource
+    href: "#dumpsource"

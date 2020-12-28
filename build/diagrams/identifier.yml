@@ -1,0 +1,36 @@
+-
+  type: Optional
+  item:
+    type: Terminal
+    options: $
+-
+  type: Optional
+  item:
+    type: Terminal
+    options: $
+-
+  type: Choice
+  options:
+    -
+      type: NonTerminal
+      text: Letter
+      href: "#letter"
+    -
+      type: Terminal
+      text: _
+-
+  type: ZeroOrMore
+  item:
+    type: Choice
+    options:
+      -
+        type: NonTerminal
+        text: Digit
+        href: "#digit"
+      -
+        type: NonTerminal
+        text: Letter
+        href: "#letter"
+      -
+        type: Terminal
+        text: _

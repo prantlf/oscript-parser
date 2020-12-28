@@ -1,0 +1,85 @@
+.TH oslint "1" "April 19, 2020" "" "oslint manual"
+
+.SH NAME
+oslint - OScript syntax checker
+
+.SH SYNOPSIS
+.B oslint
+[--[no]-locations] [--[no]-ranges] [-D|--define
+.I name
+] [-S|--source
+.I
+type
+]
+.br
+[-O|--old-version] [-t|--tokenize] [-c|--compact]
+.br
+[-e|--errors-only] [-s|--silent] [-p|--performance]
+.br
+[-v|--verbose] [-V|--version] [-h|--help]
+[
+.I file
+]
+.RE
+
+.SH DESCRIPTION
+.B
+oslint is a syntax checker for OScript programs.
+
+.SH OPTIONS
+.B
+.IP "-D|--define name"
+define a named value for preprocessor
+.B
+.IP "-S|--source type"
+source type is object, script or dump. defaults to script
+.B
+.IP "-O|--old-version"
+expect the old version of OScript. defaults to false
+.B
+.IP "-t|--tokenize"
+print tokens instead of AST
+.B
+.IP "-c, --compact"
+print without indenting and whitespace
+.B
+.IP "-e, --errors-only"
+print only files that failed the check
+.B
+.IP "-s, --silent"
+suppress output
+.B
+.IP "-v|--verbose"
+print error stacktrace
+.B
+.IP "-p|--performance"
+print parsing timing
+.B
+.IP "-V, --version"
+print version number
+.B
+.IP "-h, --help"
+print usage instructions
+
+.RE
+If no file name is provided, standard input will be read. If no source type
+is provided, it will be inferred from the file extension: ".os" -> object,
+".e" -> script, ".osx" -> dump. The source type object will enable the new
+OScript language and source type dump the old one by default.
+
+.SH EXAMPLES
+.B
+.IP "echo 'foo = ""bar""' | oslint -S script"
+Print the AST of a code snippet.
+.B
+.IP "oslint -p foo.os"
+Print the compact list of tokens for the code in the file.
+
+.SH BUGS
+oslint's bug tracker is located at <https://github.com/prantlf/oscript-parser/issues>
+
+.SH DOCUMENTATION
+See the website for documentation <https://prantlf.github.io/oscript-parser/>
+
+.SH AUTHOR
+Currently maintained by Ferdinand Prantl <prantlf@gmail.com>

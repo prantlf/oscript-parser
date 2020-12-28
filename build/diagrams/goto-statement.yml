@@ -1,0 +1,7 @@
+-
+  type: Terminal
+  text: goto
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"

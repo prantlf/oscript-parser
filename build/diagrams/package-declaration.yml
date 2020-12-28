@@ -1,0 +1,14 @@
+-
+  type: Terminal
+  text: package
+-
+  type: NonTerminal
+  text: ObjectName
+  href: "#objectname"
+-
+  type: Terminal
+  text: \r?\n
+-
+  type: NonTerminal
+  text: ObjectDeclaration
+  href: "#objectdeclaration"

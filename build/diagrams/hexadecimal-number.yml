@@ -1,0 +1,20 @@
+type: OneOrMore
+item:
+  type: Choice
+  options:
+    -
+      type: Choice
+      options:
+        -
+          type: Terminal
+          text: a
+        -
+          type: Comment
+          text: ..
+        -
+          type: Terminal
+          text: f
+    -
+      type: NonTerminal
+      text: Digit
+      href: "#digit"

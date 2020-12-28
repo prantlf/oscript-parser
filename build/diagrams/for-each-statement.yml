@@ -1,0 +1,26 @@
+-
+  type: Terminal
+  text: for
+-
+  type: NonTerminal
+  text: Identifier
+  href: "#identifier"
+-
+  type: Terminal
+  text: in
+-
+  type: NonTerminal
+  text: Expression
+  href: "#expression"
+-
+  type: Terminal
+  text: \r?\n or ;
+-
+  type: ZeroOrMore
+  item:
+    type: NonTerminal
+    text: Statement
+    href: "#statement"
+-
+  type: Terminal
+  text: end

@@ -1,0 +1,63 @@
+-
+  type: Terminal
+  text: "#"
+-
+  type: Choice
+  options:
+    -
+      type: Sequence
+      items:
+        -
+          type: Terminal
+          text: define
+        -
+          type: NonTerminal
+          text: Identifier
+          href: "#identifier"
+        -
+          type: Optional
+          item:
+            type: OneOrMore
+            item:
+              type: Terminal
+              text: Anything but line break or white space
+    -
+      type: Sequence
+      items:
+        -
+          type: Terminal
+          text: undef
+        -
+          type: NonTerminal
+          text: Identifier
+          href: "#identifier"
+    -
+      type: Sequence
+      items:
+        -
+          type: Terminal
+          text: ifdef
+        -
+          type: Optional
+          item:
+            type: NonTerminal
+            text: Identifier
+            href: "#identifier"
+    -
+      type: Sequence
+      items:
+        -
+          type: Terminal
+          text: ifndef
+        -
+          type: Optional
+          item:
+            type: NonTerminal
+            text: Identifier
+            href: "#identifier"
+    -
+      type: Terminal
+      text: else
+    -
+      type: Terminal
+      text: endif
