@@ -1,5 +1,12 @@
 # oscript-parser
 
+[![NPM version](https://badge.fury.io/js/oscript-parser.png)](http://badge.fury.io/js/oscript-parser)
+[![Build Status](https://github.com/prantlf/oscript-parser/workflows/Test/badge.svg)](https://github.com/prantlf/oscript-parser/actions)
+[![codecov](https://codecov.io/gh/prantlf/oscript-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/oscript-parser)
+[![Dependency Status](https://david-dm.org/prantlf/oscript-parser.svg)](https://david-dm.org/prantlf/oscript-parser)
+[![devDependency Status](https://david-dm.org/prantlf/oscript-parser/dev-status.svg)](https://david-dm.org/prantlf/oscript-parser#info=devDependencies)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 A parser for the [OScript language] written in JavaScript.
 
 ## Synopsis
