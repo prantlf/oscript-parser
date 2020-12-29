@@ -1,3 +1,4 @@
 extends: standard
 rules:
   no-labels: off
+  no-multi-spaces: off

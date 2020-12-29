@@ -34,12 +34,16 @@ export type SourceType = 'object' | 'script' | 'dump'
 // ============================================================
 // Error Handling
 
-export interface ParseError extends Error {
+export interface ParseWarning extends Error {
   line?: number
   column?: number
   offset?: number
   source?: string
+}
+
+export interface ParseError extends ParseWarning {
   tokens?: Token[]
+  warnings: ParseWarning[]
 }
 
 // ============================================================
@@ -104,6 +108,7 @@ export interface TokenTypes {
   ObjRef: 16384
   LegacyAlias: 32768
   KeywordOrIdentifier: 64 | 128
+  PunctuatorOrKeyword: 32 | 64
   Literal: 256 | 512 | 1024 | 2048 | 4096 | 8182 | 16384
   NoCode: 2 | 4 | 8 | 16
 }
@@ -115,6 +120,7 @@ export interface Program extends Node {
   type: 'Program'
   body: PackageDeclaration | ScriptSource | DumpSource
   tokens?: Token[] // if tokens are enabled during parsing
+  warnings: ParseWarning[]
 }
 
 // ---------- Package

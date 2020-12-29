@@ -18,5 +18,10 @@ testSnippets((assert, code, sourceType) => {
     } catch ({ message, line, column }) {
       assert.ok(message && line && column, 'OK')
     }
+  },
+  'test warning': assert => {
+    const { warnings } = parseText('s = "\n"', { sourceType: 'script' })
+    if (warnings.length) assert.ok(warnings.length === 1)
+    else assert.fail('parsed "s = \n"')
   }
 })

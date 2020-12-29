@@ -167,6 +167,7 @@ Options:
   -S|--source <type>  source type is object, script (default) or dump
   -O|--old-version    expect the old version of OScript. defaults to false
   -e|--errors-only    print only files that failed the check
+  -w|--warnings       consider warnings as failures too
   -s|--silent         suppress output
   -v|--verbose        print error stacktrace
   -p|--performance    print parsing timing

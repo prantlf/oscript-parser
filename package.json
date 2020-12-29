@@ -1,6 +1,6 @@
 {
   "name": "oscript-parser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A parser for the OScript language written in JavaScript.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
   "keywords": [
@@ -60,10 +60,10 @@
       "lcov",
       "text-summary"
     ],
-    "branches": 60,
+    "branches": 55,
     "statements": 60,
     "functions": 70,
-    "lines": 60
+    "lines": 65
   },
   "dependencies": {
     "astring": "1.4.3",
