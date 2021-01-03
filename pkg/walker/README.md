@@ -137,6 +137,6 @@ fullAncestorWalk(parseText(source, { sourceType: 'script' }), {
 **findNodeAroundWithAncestors**`(node, start, end, test, base, state)` tries to locate a node in a tree at the given position and satisfying the optional predicate `test`. Keeps an array of ancestor nodes (including the current node), passes them to the test callbacks as a third parameter and includes them in the returned object.
 
 [OScript language]: ../../doc/grammar.md#oscript-language-grammar
-[abstract syntax tree]: ../../dist/index.d.ts#L110
-[AST]: ../../dist/index.d.ts#L110
+[abstract syntax tree]: ../../dist/index.d.ts#L115
+[AST]: ../../dist/index.d.ts#L115
 [oscript-parser]: ../..#readme

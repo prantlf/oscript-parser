@@ -4,7 +4,7 @@ OScript is case-insensitive. Letters in the diagrams below are lower-case for si
 
 All white space outside of string literals, comments and the content skipped by the preprocessor is ignored, except for significant line breaks in some statements.
 
-See also the [AST node declarations](../dist/index.d.ts#L110).
+See also the [AST node declarations](../dist/index.d.ts#L115).
 
 ## Source File
 

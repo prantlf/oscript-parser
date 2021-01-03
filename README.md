@@ -242,5 +242,5 @@ Licensed under the MIT license.
 [AST for JavaScript]: https://github.com/estree/estree#readme
 [OScript language]: ./doc/grammar.md#oscript-language-grammar
 [language grammar]: ./doc/grammar.md#oscript-language-grammar
-[AST node declarations]: ./dist/index.d.ts#L110
+[AST node declarations]: ./dist/index.d.ts#L115
 [example.os]: https://github.com/prantlf/vscode-oscript/blob/master/pkg/examples/example.os
