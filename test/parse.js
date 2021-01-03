@@ -6,7 +6,6 @@ testSnippets((assert, code, sourceType) => {
     parseText(code, { sourceType: sourceType || 'object', tokens: true })
     const tokens = tokenize(code, { sourceType: sourceType || 'object' })
     parseTokens(code, tokens, { sourceType: sourceType || 'object' })
-    assert.ok(true, 'OK')
   } catch ({ message, line, column }) {
     assert.fail({ message: `at ${line},${column + 1}: ${message}` })
   }
@@ -15,13 +14,13 @@ testSnippets((assert, code, sourceType) => {
     try {
       parseText('i = = [', { sourceType: 'script' })
       assert.fail('parsed "i = = ["')
-    } catch ({ message, line, column }) {
-      assert.ok(message && line && column, 'OK')
+    } catch ({ message, code, line, column, offset, length }) {
+      if (!(message && code && line && column &&
+          offset !== undefined && length !== undefined)) assert.fail('missing error info')
     }
   },
   'test warning': assert => {
     const { warnings } = parseText('s = "\n"', { sourceType: 'script' })
-    if (warnings.length) assert.ok(warnings.length === 1)
-    else assert.fail('parsed "s = \n"')
+    if (!warnings.length) assert.fail('parsed "s = \n"')
   }
 })

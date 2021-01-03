@@ -1,56 +1,66 @@
+import json from '@rollup/plugin-json'
 import cleanup from 'rollup-plugin-cleanup'
 import { terser } from 'rollup-plugin-terser'
 
 const name = 'oscript'
 const sourcemap = true
-const external = ['chevrotain', 'fs', 'path', 'perf_hooks', 'tiny-glob/sync', 'oscript-parser']
-const plugins = [cleanup()]
+const external = [
+  'colorette', 'fs', 'oscript-parser', 'path', 'perf_hooks', 'tiny-glob/sync'
+]
 
-function library (index) {
+function library () {
+  const outprefix = 'dist/index'
   return {
-    input: `lib/${index}.js`,
+    input: 'pkg/parser/index.js',
     output: [
+      { file: `${outprefix}.js`, format: 'cjs', sourcemap },
+      { file: `${outprefix}.mjs`, format: 'esm', sourcemap },
+      { file: `${outprefix}.umd.js`, format: 'umd', name, sourcemap },
       {
-        file: `dist/${index}.js`,
-        format: 'cjs',
-        sourcemap
-      },
-      {
-        file: `dist/${index}.mjs`,
-        format: 'esm',
-        sourcemap
-      },
-      {
-        file: `dist/${index}.umd.js`,
-        format: 'umd',
-        name,
-        sourcemap
-      },
-      {
-        file: `dist/${index}.umd.min.js`,
+        file: `${outprefix}.umd.min.js`,
         format: 'umd',
         name,
         sourcemap,
         plugins: [terser()]
       }
     ],
-    plugins
+    plugins: [cleanup()]
   }
 }
 
-function script (index) {
+function subpkg (name) {
+  const outprefix = `pkg/${name}/dist/index`
   return {
-    input: `lib/bin/${index}.js`,
+    input: `pkg/${name}/index.js`,
+    output: [
+      { file: `${outprefix}.js`, format: 'cjs', sourcemap },
+      { file: `${outprefix}.mjs`, format: 'esm', sourcemap },
+      { file: `${outprefix}.umd.js`, format: 'umd', name, sourcemap },
+      {
+        file: `${outprefix}.umd.min.js`,
+        format: 'umd',
+        name,
+        sourcemap,
+        plugins: [terser()]
+      }
+    ],
+    plugins: [cleanup()]
+  }
+}
+
+function script (name) {
+  return {
+    input: `pkg/${name}/index.js`,
     output: {
-      file: `dist/bin/${index}`,
+      file: `dist/bin/${name}`,
       format: 'cjs',
       banner: '#!/usr/bin/env node',
       paths: { 'oscript-parser': '..' },
       sourcemap
     },
     external,
-    plugins
+    plugins: [json(), cleanup()]
   }
 }
 
-export default [library('index'), script('osparse'), script('oslint')]
+export default [library(), subpkg('walker'), script('osparse'), script('oslint')]

@@ -9,18 +9,21 @@ osparse - OScript parser
 .RS
 [--[no]-whitespace] [--[no]-locations] [--[no]-ranges]
 .br
-[--[no]-raw] [-D|--define
-.I name
-]
+[--[no]-raw] [--[no]-raw-identifiers] [--[no]-raw-literals]
 .br
-[-S|--source
+[--[no]-context] [--[no]-colors]
+.br
+[-D|--define
+.I name
+] [-S|--source
 .I
 type
-] [-O|--old-version] [-t|--tokenize]
+] [-O|--old-version]
 .br
-[-c|--compact] [-s|--silent] [-v|--verbose]
+[-t|--tokenize] [-c|--compact] [-w|--warnings] [-s|--silent]
 .br
-[-p|--performance] [-V|--version] [-h|--help]
+[-v|--verbose] [-p|--performance] [-V|--version] [-h|--help]
+.br
 [
 .I file
 ]
@@ -28,7 +31,7 @@ type
 
 .SH DESCRIPTION
 .B
-osparse is a parser producing JSON-formatted Abstract Syntax Tree or (just tokens) for OScript programs.
+osparse is a parser producing JSON-formatted Abstract Syntax Tree (AST) or just tokens for OScript programs.
 
 .SH OPTIONS
 .B
@@ -45,13 +48,25 @@ include comments. defaults to false
 include whitespace. defaults to false
 .B
 .IP "--[no]-locations"
-store location data on syntax nodes. defaults to false
+store locations of parsed nodes. defaults to false
 .B
 .IP "--[no]-ranges"
 store start and end token ranges. defaults to false
 .B
 .IP "--[no]-raw"
-store raw literals. defaults to false
+store raw identifiers and literals. defaults to false
+.B
+.IP "--[no]-raw-identifiers"
+store raw identifiers only. defaults to false
+.B
+.IP "--[no]-raw-literals"
+store raw literals only. defaults to false
+.B
+.IP "--[no]-context"
+show near source as error context. defaults to true
+.B
+.IP "--[no]-colors"
+enable colors in the terminal. default is auto
 .B
 .IP "-D|--define name"
 define a named value for preprocessor
@@ -60,13 +75,16 @@ define a named value for preprocessor
 source type is object, script or dump. defaults to script
 .B
 .IP "-O|--old-version"
-expect the old version of OScript. defaults to false
+expect an old version of OScript. defaults to false
 .B
 .IP "-t|--tokenize"
 print tokens instead of AST
 .B
 .IP "-c, --compact"
 print without indenting and whitespace
+.B
+.IP "-w, --warnings"
+consider warnings as failures too
 .B
 .IP "-s, --silent"
 suppress output

@@ -24,6 +24,8 @@ export interface Options {
   locations?: boolean
   ranges?: boolean
   raw?: boolean
+  rawIdentifiers?: boolean
+  rawLiterals?: boolean
   sourceType?: SourceType
   oldVersion?: boolean
   sourceFile?: string
@@ -35,10 +37,12 @@ export type SourceType = 'object' | 'script' | 'dump'
 // Error Handling
 
 export interface ParseWarning extends Error {
-  line?: number
-  column?: number
-  offset?: number
-  source?: string
+  code: string
+  line: number
+  column: number
+  offset: number
+  length: number
+  source: string
 }
 
 export interface ParseError extends ParseWarning {
@@ -47,14 +51,7 @@ export interface ParseError extends ParseWarning {
 }
 
 // ============================================================
-// Shared
-
-interface Node {
-  type: string
-  loc?: SourceLocation
-  sourceFile?: string
-  range?: Range
-}
+// Locations and Ranges
 
 export interface SourceLocation {
   start: Position
@@ -77,13 +74,13 @@ export interface Token {
   value: null | boolean | number | string
   line: number
   lineStart: number
-  lastLine?: number
-  lastLineStart?: number
+  lastLine: number
+  lastLineStart: number
   range: Range
   hashQuote?: boolean // for identifiers
   multiline?: boolean // for comments
-  directive?: string // for preprocessor directives
-  name?: string // for ifdef, ifndef, define and undef preprocessor directives
+  directive?: string  // for preprocessor directives
+  name?: string       // for ifdef, ifndef, define and undef preprocessor directives
   namedValue?: string // for ifdef, ifndef and define preprocessor directives
 }
 
@@ -107,6 +104,7 @@ export interface TokenTypes {
   DateLiteral: 8192
   ObjRef: 16384
   LegacyAlias: 32768
+  // Combinations for matching multiple token types
   KeywordOrIdentifier: 64 | 128
   PunctuatorOrKeyword: 32 | 64
   Literal: 256 | 512 | 1024 | 2048 | 4096 | 8182 | 16384
@@ -115,6 +113,13 @@ export interface TokenTypes {
 
 // ============================================================
 // Parser
+
+export interface Node {
+  type: string
+  loc?: SourceLocation
+  sourceFile?: string
+  range?: Range
+}
 
 export interface Program extends Node {
   type: 'Program'
@@ -135,9 +140,11 @@ export interface ObjectDeclaration extends Node {
   type: 'ObjectDeclaration'
   id: Identifier
   modifier: Modifier
-  superObject: ObjectName
-  body: Array<FunctionDeclaration | ScriptDeclaration | FeatureDeclaration>
+  superObject?: ObjectName
+  body: MemberDeclaration[]
 }
+
+export type MemberDeclaration = FunctionDeclaration | ScriptDeclaration | FeatureDeclaration
 
 export interface FeatureDeclaration extends Node {
   type: 'FeatureDeclaration'
@@ -186,7 +193,7 @@ export interface FeatureInitialization extends Node {
 export interface ScriptDeclaration extends Node {
   type: 'ScriptDeclaration'
   id: Identifier
-  modifier: Modifier
+  modifier?: Modifier
   body: Array<FunctionDeclaration | Statement>
 }
 
@@ -220,7 +227,7 @@ export interface IfStatement extends Node {
   type: 'IfStatement'
   test: Expression
   consequent: Statement[]
-  otherClauses: ElseIfClause
+  otherClauses: ElseIfClause[]
   alternate?: Statement[]
 }
 
@@ -266,6 +273,7 @@ export interface ForEachStatement extends Node {
   type: 'ForEachStatement'
   left: Identifier
   right: Expression
+  body: Statement[]
 }
 
 export interface StructuredForStatement extends Node {
@@ -273,7 +281,7 @@ export interface StructuredForStatement extends Node {
   variable: Identifier
   start: Expression
   end: Expression
-  step: Expression
+  step?: Expression
   down: boolean
   body: Statement[]
 }
@@ -431,7 +439,7 @@ export interface CallExpression extends Node {
 
 export type PrimaryExpression = XlateExpression | ParenthesisExpression |
 ThisExpression | SuperExpression | AssocExpression | ListExpression |
-ListComprehension | ObjectName | Literal
+ListComprehension | ObjectName | Identifier | Literal
 
 export interface ThisExpression extends Node {
   type: 'ThisExpression'
@@ -481,7 +489,7 @@ export interface XlateExpression extends Node {
   string: Identifier
 }
 
-// ---------- Identifier and Literals
+// ---------- Identifiers
 
 export interface Identifier extends Node {
   type: 'Identifier'
@@ -492,7 +500,10 @@ export interface Identifier extends Node {
 export interface LegacyAlias extends Node {
   type: 'LegacyAlias'
   value: number
+  raw?: string
 }
+
+// ---------- Literals
 
 export interface Literal extends Node {
   type: 'Literal'

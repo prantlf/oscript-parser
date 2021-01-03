@@ -4,7 +4,6 @@ import { tokenize } from '..'
 testSnippets((assert, code) => {
   try {
     tokenize(code)
-    assert.ok(true, 'OK')
   } catch ({ message, line, column }) {
     assert.fail({ message: `at ${line},${column + 1}: ${message}` })
   }
@@ -13,8 +12,9 @@ testSnippets((assert, code) => {
     try {
       tokenize('#invalid')
       assert.fail('tokenized "#invalid"')
-    } catch ({ message, line, column }) {
-      assert.ok(message && line && column, 'OK')
+    } catch ({ message, code, line, column, offset, length }) {
+      if (!(message && code && line && column &&
+          offset !== undefined && length !== undefined)) assert.fail('missing error info')
     }
   }
 })

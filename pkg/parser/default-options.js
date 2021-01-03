@@ -21,8 +21,15 @@ export default {
   // Store the start and end character locations on each parser node as
   // `range: [start, end]`.
   ranges: false,
-  // Store the raw original of literals. Useful for code formatting.
+  // Store the raw original of identifiers and literals.
+  // Useful for code formatting and exact string matching.
   raw: false,
+  // Store the raw original of identifiers only.
+  // Useful for code formatting and exact string matching.
+  rawIdentifiers: false,
+  // Store the raw original of literals only.
+  // Useful for code formatting.
+  rawLiterals: false,
   // Set the source type to `object`, `script` or `dump` (the old object format).
   sourceType: 'script',
   // Enable support for the old version of the OScript language.

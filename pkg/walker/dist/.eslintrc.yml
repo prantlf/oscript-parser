@@ -5,4 +5,4 @@ parser: '@typescript-eslint/parser'
 parserOptions:
   project: tsconfig.json
 rules:
-  no-multi-spaces: off
+  '@typescript-eslint/consistent-type-definitions': off

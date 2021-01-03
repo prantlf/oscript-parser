@@ -1,6 +1,6 @@
 {
   "name": "oscript-parser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A parser for the OScript language written in JavaScript.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
   "keywords": [
@@ -41,8 +41,8 @@
     "build": "rollup -c build/rollup.config.js",
     "doc": "node -r esm build/diagrams",
     "watch": "rollup -c build/rollup.config.js -w",
-    "lint:js": "eslint 'build/*.js' 'lib/**/*.js' 'perf/*.js' 'test/*.js'",
-    "lint:ts": "eslint dist/*.d.ts",
+    "lint:js": "eslint --cache --cache-file .eslintcache 'build/*.js' 'pkg/!(dist)/*.js' 'perf/*.js' 'test/*.js'",
+    "lint:ts": "eslint --cache --cache-file .tslintcache dist/*.d.ts pkg/walker/dist/*.d.ts",
     "lint": "npm run lint:js && npm run lint:ts",
     "check:parser": "nyc --silent --no-clean node -r esm test/parse",
     "check:lexer": "nyc --silent node -r esm test/tokenize",
@@ -66,17 +66,18 @@
     "lines": 65
   },
   "dependencies": {
-    "astring": "1.4.3",
+    "colorette": "1.2.1",
     "tiny-glob": "0.2.8"
   },
   "devDependencies": {
     "@prantlf/railroad-diagrams": "1.0.1",
-    "@types/node": "14.14.16",
-    "@typescript-eslint/eslint-plugin": "4.11.0",
-    "@typescript-eslint/parser": "4.11.0",
+    "@rollup/plugin-json": "4.1.0",
+    "@types/node": "14.14.19",
+    "@typescript-eslint/eslint-plugin": "4.11.1",
+    "@typescript-eslint/parser": "4.11.1",
     "benchmark": "2.1.4",
-    "chevrotain": "7.0.3",
-    "eslint": "7.16.0",
+    "chevrotain": "7.1.0",
+    "eslint": "7.17.0",
     "eslint-config-standard": "16.0.2",
     "eslint-config-standard-with-typescript": "19.0.1",
     "eslint-plugin-import": "2.22.1",
@@ -84,7 +85,7 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.1.0",
     "esm": "3.2.25",
-    "js-yaml": "3.14.1",
+    "js-yaml": "4.0.0",
     "minimatch": "3.0.4",
     "mkdirp": "1.0.4",
     "nyc": "15.1.0",

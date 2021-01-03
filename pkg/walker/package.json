@@ -1,0 +1,28 @@
+{
+  "name": "oscript-ast-walker",
+  "version": "0.0.1",
+  "description": "A walker for nodes of the abstract syntax tree (AST) for the OScript language.",
+  "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
+  "keywords": [
+    "ast",
+    "oscript",
+    "walker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prantlf/oscript-parser.git"
+  },
+  "homepage": "https://prantlf.github.io/oscript-parser/tree/master/pkg/walker#readme",
+  "bugs": "https://github.com/prantlf/oscript-parser/issues",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.umd.min.js",
+  "types": "dist/index.d.ts"
+}

@@ -52,6 +52,10 @@ export default {
     return { type: 'Identifier', value, raw }
   },
 
+  legacyAlias (value, raw) {
+    return { type: 'LegacyAlias', value, raw }
+  },
+
   literal (type, value, raw) {
     const literalType = type === StringLiteral
       ? 'string'

@@ -31,6 +31,10 @@ If you want to use the executables `osparse` or `oslint` from `PATH`, install th
 
 ## API
 
+The OScript AST resembles the [AST for JavaScript], but it includes nodes specific to the OScript syntax. See the [language grammar] and the [AST node declarations].
+
+The OScript language is case-insensitive. Values of keywords and identifiers in tokens and AST nodes (`value` property) are converted lower-case to make comparisons and look-ups more convenient. If you need the original letter-case, enable the raw AST node content (`raw` property) by the `rawIdentifiers` parser option.
+
 ### Parser
 
 The output of the parser is an Abstract Syntax Tree (AST) formatted in JSON. The parser functionality is exposed by `parseText()` and `parseTokens()`. The `parseText()` expects an input text. The `startTokenization()` expects an input text with tokens already produced by `tokenize()`.
@@ -44,9 +48,11 @@ The available options are:
   or lexing. Useful for code formatting.
 - `whitespace: false` Include whitespace tokens in the output of parsing
   or lexing. Useful for code formatting.
-- `locations: false` Store location information on each syntax node.
-- `ranges: false` Store the start and end character locations on each syntax node.
-- `raw: false` Store the raw original of literals.
+- `locations: false` Store location information on each parsed node.
+- `ranges: false` Store the start and end character locations on each parsed node.
+- `raw: false` Store the raw original of identifiers and literals.
+- `rawIdentifiers: false` Store the raw original of identifiers only.
+- `rawLiterals: false` Store the raw original of literals only.
 - `sourceType: 'script'` Set the source type to `object`, `script` or `dump`
   (the old object format).
 - `oldVersion: undefined` Expect the old version of the OScript language.
@@ -61,13 +67,11 @@ const program = parseText('foo = "bar"', { sourceType: 'script' })
 // { type: "Program",
 //   body:
 //     [{ type: "AssignmentStatement",
-//        variables: [{ type: "Identifier", name: "foo", raw: "foo" }],
-//        init: [{ type: "StringLiteral", value: "bar", raw: "\"bar\""}]
+//        variables: [{ type: "Identifier", value: "foo" }],
+//        init: [{ type: "StringLiteral", value: "bar" }]
 //     }]
 // }
 ```
-
-The OScript AST resembles the [AST for JavaScript], but it includes nodes specific to the OScript syntax. See the [language grammar] and the [AST node declarations].
 
 ### Lexer
 
@@ -78,8 +82,7 @@ Each token consists of:
 - `type` expressed as an enum flag which can be matched with `tokenTypes`.
 - `value`
 - `line`, `lineStart`
-- `range` can be used to slice out raw values, eg. `foo = "bar"` will return a
-`StringLiteral` token with the value `bar`. Slicing out the range on the other
+- `range` can be used to slice out the raw token content. For example, `foo = "bar"` will return a `StringLiteral` token with the value `bar`. Slicing out the range on the other
 hand will return `"bar"`.
 
 ```js
@@ -114,23 +117,28 @@ $ osparse -h
 Usage: osparse [option...] [file]
 
 Options:
-  --[no]-tokens        include lexer tokens. defaults to false
-  --[no]-preprocessor  include preprocessor directives. defaults to false
-  --[no]-comments      include comments. defaults to false
-  --[no]-whitespace    include whitespace. defaults to false
-  --[no]-locations     store location data on syntax nodes. defaults to false
-  --[no]-ranges        store start and end token ranges. defaults to false
-  --[no]-raw           store raw literals. defaults to false
-  -D|--define <name>   define a named value for preprocessor
-  -S|--source <type>   source type is object, script (default) or dump
-  -O|--old-version     expect the old version of OScript. defaults to false
-  -t|--tokenize        print tokens instead of AST
-  -c|--compact         print without indenting and whitespace
-  -s|--silent          suppress output
-  -v|--verbose         print error stacktrace
-  -p|--performance     print parsing timing
-  -V|--version         print version number
-  -h|--help            print usage instructions
+  --[no]-tokens           include lexer tokens. defaults to false
+  --[no]-preprocessor     include preprocessor directives. defaults to false
+  --[no]-comments         include comments. defaults to false
+  --[no]-whitespace       include whitespace. defaults to false
+  --[no]-locations        store location of parsed nodes. defaults to false
+  --[no]-ranges           store start and end token ranges. defaults to false
+  --[no]-raw              store raw identifiers & literals. defaults to false
+  --[no]-raw-identifiers  store raw identifiers & literals. defaults to false
+  --[no]-raw-literals     store raw identifiers & literals. defaults to false
+  --[no]-context          show near source as error context. defaults to true
+  --[no]-colors           enable colors in the terminal. default is auto
+  -D|--define <name>      define a named value for preprocessor
+  -S|--source <type>      source type is object, script (default) or dump
+  -O|--old-version        expect an old version of OScript. defaults to false
+  -t|--tokenize           print tokens instead of AST
+  -c|--compact            print without indenting and whitespace
+  -w|--warnings           consider warnings as failures too
+  -s|--silent             suppress output
+  -v|--verbose            print error stacktrace
+  -p|--performance        print parsing timing
+  -V|--version            print version number
+  -h|--help               print usage instructions
 
 If no file name is provided, standard input will be read. If no source type
 is provided, it will be inferred from the file extension: ".os" -> object,
@@ -148,8 +156,8 @@ Example usage:
 $ echo "i = 0" | osparse -c -S script
 
 {"type":"Program","body":[{"type":"AssignmentStatement",
- "variables":[{"type":"Identifier","name":"i"}],
- "init":[{"type":"NumericLiteral","value":0,"raw":"0"}]}]}
+ "variables":[{"type":"Identifier","value":"i"}],
+ "init":[{"type":"NumericLiteral","value":0}]}]}
 ```
 
 ### oslint(1)
@@ -163,9 +171,11 @@ $ oslint -h
 Usage: oslint [option...] [pattern ...]
 
 Options:
+  --[no]-context      show near source as error context. defaults to true
+  --[no]-colors       enable colors in the terminal. default is auto
   -D|--define <name>  define a named value for preprocessor
   -S|--source <type>  source type is object, script (default) or dump
-  -O|--old-version    expect the old version of OScript. defaults to false
+  -O|--old-version    expect an old version of OScript. defaults to false
   -e|--errors-only    print only files that failed the check
   -w|--warnings       consider warnings as failures too
   -s|--silent         suppress output
@@ -191,6 +201,38 @@ $ echo "i = 0" | oslint
 snippet succeeded
 ```
 
+### Error Handling
+
+If tokenizing or parsing fails, a non-zero exit code will be returned by either of `osparse` and `oslint` and the error with an extra context will be printed on the console. For example, after deleting an equal sign (`=`) from [example.os]:
+
+<!--
+$ oslint example.os
+
+example.os failed with 1 error and 0 warnings
+example.os:7:28: error: modifier, type, function, script or end expected near 'public'
+ 5｜
+ 6｜ public object Document inherits CORE::Node
+ 7｜  override Boolean fEnabled TRUE
+  ｜                            ~~~~
+ 8｜
+ 9｜  // Gets a livelink document
+```
+-->
+<pre>
+<span style="font-weight:bold;color:gray;">$ oslint example.os</span>
+
+example.os <span style="font-weight:bold;color:red;">failed</span> with 1 error and 0 warnings
+<span style="font-weight:bold;color:gray;">example.os:7:28: </span><span style="font-weight:bold;color:red;">error: </span><span style="font-weight:bold;color:gray;">&lt;modifier&gt;, &lt;type&gt;, function, script or end expected near 'public'</span>
+ 5｜
+ 6｜ public object Document inherits CORE::Node
+ <span style="font-weight:bold;color:teal;">7</span>｜  override Boolean fEnabled <span style="font-weight:bold;color:teal;">TRUE</span>
+  ｜                            <span style="font-weight:bold;color:teal;">~~~~</span>
+ 8｜
+ 9｜  // Gets a livelink document
+</pre>
+
+All output of `oslint` goes to standard output. For `osparse`, the result AST goes to standard output and error and timing information to standard error.
+
 ## License
 
 Copyright (c) 2020 Ferdinand Prantl
@@ -201,3 +243,4 @@ Licensed under the MIT license.
 [OScript language]: ./doc/grammar.md#oscript-language-grammar
 [language grammar]: ./doc/grammar.md#oscript-language-grammar
 [AST node declarations]: ./dist/index.d.ts#L110
+[example.os]: https://github.com/prantlf/vscode-oscript/blob/master/pkg/examples/example.os

@@ -1,5 +1,5 @@
 import mkdirp from 'mkdirp'
-import { safeLoad } from 'js-yaml'
+import { load } from 'js-yaml'
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import { Diagram } from '@prantlf/railroad-diagrams'
@@ -234,7 +234,7 @@ function loadDiagrams (diagrams) {
 
 function loadDiagram (name) {
   const fileName = join(__dirname, `diagrams/${name}.yml`)
-  const diagram = safeLoad(readFileSync(fileName, 'utf-8'))
+  const diagram = load(readFileSync(fileName, 'utf-8'))
   return Diagram.fromJSON(diagram)
 }
 

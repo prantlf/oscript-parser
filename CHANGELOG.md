@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.2.0
+
+### New Features
+
+* Allow storing raw content not only for literals, but for identifiers too.
+* Let warning fail the syntax check too, if requested by `-w|--warnings`.
+* Use colours in the console output.
+* Print error context for parsing failures, for exaample:
+
+    $ oslint example.os
+
+    example.os failed with 1 error and 0 warnings
+    example.os:7:28: error: modifier, type, function, script or end expected near 'public'
+     5｜
+     6｜ public object Document inherits CORE::Node
+     7｜  override Boolean fEnabled TRUE
+      ｜                            ~~~~
+     8｜
+     9｜  // Gets a livelink document
+
+### Fixed Bugs
+
+* Correct parsed node and error locations.
+* Correct typings for AST nodes.
+
 ## 0.1.0
 
 Include a new property `warnings` in the parser output or error, which will contain an array of warnings. A warning is a mistake in the source code, which is not fatal (and will be compiled and executed properly), but which is against the modern language specification. Warn  about:

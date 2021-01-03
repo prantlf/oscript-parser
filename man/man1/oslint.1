@@ -5,18 +5,20 @@ oslint - OScript syntax checker
 
 .SH SYNOPSIS
 .B oslint
-[--[no]-locations] [--[no]-ranges] [-D|--define
+[--[no]-context] [--[no]-colors]
+.br
+[-D|--define
 .I name
 ] [-S|--source
 .I
 type
-]
+] [-O|--old-version]
 .br
-[-O|--old-version] [-t|--tokenize] [-c|--compact]
+[-t|--tokenize] [-c|--compact] [-e|--errors-only]
 .br
-[-e|--errors-only] [-s|--silent] [-p|--performance]
+[-w|--warnings] [-s|--silent] [-v|--verbose]
 .br
-[-v|--verbose] [-V|--version] [-h|--help]
+[-p|--performance] [-V|--version] [-h|--help]
 [
 .I file
 ]
@@ -28,6 +30,12 @@ oslint is a syntax checker for OScript programs.
 
 .SH OPTIONS
 .B
+.IP "--[no]-context"
+show near source as error context. defaults to true
+.B
+.IP "--[no]-colors"
+enable colors in the terminal. default is auto
+.B
 .IP "-D|--define name"
 define a named value for preprocessor
 .B
@@ -35,7 +43,7 @@ define a named value for preprocessor
 source type is object, script or dump. defaults to script
 .B
 .IP "-O|--old-version"
-expect the old version of OScript. defaults to false
+expect an old version of OScript. defaults to false
 .B
 .IP "-t|--tokenize"
 print tokens instead of AST

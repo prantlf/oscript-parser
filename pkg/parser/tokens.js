@@ -38,6 +38,7 @@ export {
   UndefinedLiteral,
   ObjRef,
   LegacyAlias,
+  // Combinations for matching multiple token types
   Literal,
   KeywordOrIdentifier,
   PunctuatorOrKeyword,

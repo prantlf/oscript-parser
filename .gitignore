@@ -1,5 +1,7 @@
 .DS_Store
+.eslintcache
 .nyc_output
+.tslintcache
 coverage
 dist/bin
 dist/*.[jm]*

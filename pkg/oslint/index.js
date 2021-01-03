@@ -1,13 +1,16 @@
 import globSync from 'tiny-glob/sync'
-import { readFileSync } from 'fs'
-import { join, extname } from 'path'
 import { performance } from 'perf_hooks'
+import { options as colors, bold, white, yellow, green } from 'colorette'
 import { parseText } from 'oscript-parser'
+import {
+  version, matchArgument, slurpStdin, readSource,
+  printError, printWarnings, formatTime, formatWarningCount
+} from '../osparse/console'
 
-const { version } = JSON.parse(readFileSync(join(__dirname, '../../package.json'), 'utf-8'))
 const args = process.argv
 let errorsOnly = false
 let considerWarnings = false
+let context = true
 let silent = false
 let verbose = false
 let measure = false
@@ -19,12 +22,14 @@ let source, sourceType
 function usage () {
   console.log(`Checks the syntax of OScript programs.
 
-Usage: oslint [option...] [pattern ...]
+${bold(yellow('Usage:'))} ${bold(white('oslint [option...] [pattern ...]'))}
 
-Options:
+${bold(yellow('Options:'))}
+  --[no]-context      show near source as error context. defaults to true
+  --[no]-colors       enable colors in the terminal. default is auto
   -D|--define <name>  define a named value for preprocessor
   -S|--source <type>  source type is object, script (default) or dump
-  -O|--old-version    expect the old version of OScript. defaults to false
+  -O|--old-version    expect an old version of OScript. defaults to false
   -e|--errors-only    print only files that failed the check
   -w|--warnings       consider warnings as failures too
   -s|--silent         suppress output
@@ -38,7 +43,7 @@ is provided, it will be inferred from the file extension: ".os" -> object,
 ".e" -> script, ".osx" -> dump. The source type object will enable the new
 OScript language and source type dump the old one by default.
   
-Examples:
+${bold(yellow('Examples:'))}
   echo 'foo = "bar"' | oslint -S script
   oslint -p foo.os`)
   process.exit(0)
@@ -48,10 +53,16 @@ if (!args.length) usage()
 
 for (let i = 2, l = args.length; i < l; ++i) {
   const arg = args[i]
-  let match
-  if ((match = /^(?:-|--)(?:(no)-)?(\w+)$/.exec(arg))) {
+  const match = matchArgument(arg)
+  if (match) {
     const flag = match[2]
     switch (flag) {
+      case 'context':
+        context = match[1] !== 'no'
+        continue
+      case 'colors':
+        colors.enabled = match[1] !== 'no'
+        continue
       case 'e': case 'errors-only':
         errorsOnly = true
         continue
@@ -93,15 +104,7 @@ if (patterns.length) {
   for (const pattern of patterns) {
     const names = globSync(pattern, { filesOnly: true })
     for (const name of names) {
-      source = { name, code: readFileSync(name, 'utf-8') }
-      if (sourceType === undefined) {
-        const ext = extname(name)
-        switch (ext) {
-          case '.os': options.sourceType = 'object'; break
-          case '.osx': options.sourceType = 'dump'; break
-          case '.e': options.sourceType = 'script'; break
-        }
-      }
+      source = readSource(name, sourceType, options)
       run()
     }
   }
@@ -115,32 +118,23 @@ if (patterns.length) {
 }
 
 function run () {
+  let start
   try {
     options.sourceFile = source.name
-    const start = measure && performance.now()
+    start = measure && performance.now()
     const { warnings } = parseText(source.code, options)
-    let time
-    if (start) {
-      const end = performance.now()
-      time = ` in ${Math.round(end - start)}ms`
-    } else {
-      time = ''
-    }
+    const time = formatTime(start)
     if (considerWarnings && warnings.length) {
       if (!silent) {
-        for (const { message, line, column } of warnings) {
-          console.warn(`${source.name}:${line}:${column}: ${message}`)
-        }
+        process.stdout.write(`${source.name} ${bold(yellow('failed'))} with ${formatWarningCount(warnings)}${time}\n`)
+        printWarnings(process.stdout, source, warnings, { context })
       }
       process.exitCode = 1
+    } else {
+      if (!silent && !errorsOnly) process.stdout.write(`${source.name} ${bold(green('succeeded'))}${time}\n`)
     }
-    if (!silent && !errorsOnly) console.log(`${source.name} succeeded${time}`)
   } catch (error) {
-    if (!silent) {
-      const location = error.line ? `:${error.line}:${error.column}` : ''
-      console.error(`${source.name}${location}: ${error.message}`)
-    }
-    if (verbose) console.log(error.stack)
+    if (!silent) printError(process.stdout, source, start, error, { context, verbose })
     process.exitCode = 1
   }
 }
@@ -148,13 +142,8 @@ function run () {
 if (source) {
   run()
 } else if (source === undefined) {
-  let input = ''
-  process.stdin.setEncoding('utf8')
-  process.stdin
-    .on('data', chunk => (input += chunk))
-    .on('end', () => {
-      source = { name: 'snippet', code: input }
-      run()
-    })
-    .resume()
+  slurpStdin(result => {
+    source = result
+    run()
+  })
 }
