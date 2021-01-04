@@ -1,6 +1,6 @@
 {
   "name": "oscript-parser",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A parser for the OScript language written in JavaScript.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
   "keywords": [

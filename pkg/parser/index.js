@@ -1771,7 +1771,7 @@ function parseParenthesisExpression () {
 function parseMemberSliceCallExpression () {
   const startToken = token
   let left = consumePunctuator('.') // a starting dot alone dereferences this
-    ? parseMemberExpression(placeNode(ast.thisExpression(), prevToken))
+    ? parseMemberExpression(startToken, placeNode(ast.thisExpression(), prevToken))
     : parsePrimaryExpression()
   for (;;) {
     if (consumePunctuator('.')) {
