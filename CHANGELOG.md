@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+Fix parsing of the `switch` statement.
+
 ## 0.2.0
 
 ### New Features

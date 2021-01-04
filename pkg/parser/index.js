@@ -1459,7 +1459,9 @@ function parseSwitchStatement () {
   }
 
   function savePrevCase () {
-    cases.push(placeNode(ast.switchCase(tests, statements), caseToken))
+    if (caseOrDefault) {
+      cases.push(placeNode(ast.switchCase(tests, statements), caseToken))
+    }
   }
 }
 
