@@ -358,8 +358,8 @@ base.VariableDeclarator = (node, state, walk) => {
 
 base.ConditionalExpression = (node, state, walk) => {
   walk(node.test, node, state)
-  for (const statement of node.consequent) walk(statement, node, state)
-  for (const statement of node.alternate) walk(statement, node, state)
+  walk(node.consequent, node, state)
+  walk(node.alternate, node, state)
 }
 
 base.BinaryExpression = (node, state, walk) => {
@@ -394,7 +394,7 @@ base.CallExpression = (node, state, walk) => {
 
 base.ThisExpression = base.SuperExpression = ignore
 
-base.AssocExpression = (node, state, walk) => {
+base.AssocExpression = base.ObjectExpression = (node, state, walk) => {
   for (const property of node.properties) walk(property, node, state)
 }
 

@@ -3,15 +3,15 @@ dependencies:
   tiny-glob: 0.2.8
 devDependencies:
   '@prantlf/railroad-diagrams': 1.0.1
-  '@rollup/plugin-json': 4.1.0_rollup@2.35.1
-  '@types/node': 14.14.19
-  '@typescript-eslint/eslint-plugin': 4.11.1_b2dd67832f09d3c75a9232f43d687d74
-  '@typescript-eslint/parser': 4.11.1_eslint@7.17.0+typescript@4.1.3
+  '@rollup/plugin-json': 4.1.0_rollup@2.36.1
+  '@types/node': 14.14.20
+  '@typescript-eslint/eslint-plugin': 4.12.0_343306961d6b60bcf6bd09d193a54461
+  '@typescript-eslint/parser': 4.12.0_eslint@7.17.0+typescript@4.1.3
   benchmark: 2.1.4
   chevrotain: 7.1.0
   eslint: 7.17.0
   eslint-config-standard: 16.0.2_b6c95e97565ff2ef13d5b2133b8da02f
-  eslint-config-standard-with-typescript: 19.0.1_6774e99ad6a6f38f3e157585f188b784
+  eslint-config-standard-with-typescript: 19.0.1_bf7348a8bc6b56a90b9c3e9e425b0210
   eslint-plugin-import: 2.22.1_eslint@7.17.0
   eslint-plugin-node: 11.1.0_eslint@7.17.0
   eslint-plugin-promise: 4.2.1
@@ -21,9 +21,9 @@ devDependencies:
   minimatch: 3.0.4
   mkdirp: 1.0.4
   nyc: 15.1.0
-  rollup: 2.35.1
-  rollup-plugin-cleanup: 3.2.1_rollup@2.35.1
-  rollup-plugin-terser: 7.0.2_rollup@2.35.1
+  rollup: 2.36.1
+  rollup-plugin-cleanup: 3.2.1_rollup@2.36.1
+  rollup-plugin-terser: 7.0.2_rollup@2.36.1
   rrdiagram-js: 1.0.7
   test: 0.6.0
   typescript: 4.1.3
@@ -264,21 +264,21 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-4VOvyobF+/8NN7CEVktgXoZ0m+agLioJFMAcj+0JmPkA7CBSw01mHrFYyEafBT84ZVBhTLl/7h0ozACOojM6nQ==
-  /@rollup/plugin-json/4.1.0_rollup@2.35.1:
+  /@rollup/plugin-json/4.1.0_rollup@2.36.1:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.35.1
-      rollup: 2.35.1
+      '@rollup/pluginutils': 3.1.0_rollup@2.36.1
+      rollup: 2.36.1
     dev: true
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     resolution:
       integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==
-  /@rollup/pluginutils/3.1.0_rollup@2.35.1:
+  /@rollup/pluginutils/3.1.0_rollup@2.36.1:
     dependencies:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.2.2
-      rollup: 2.35.1
+      rollup: 2.36.1
     dev: true
     engines:
       node: '>= 8.0.0'
@@ -298,19 +298,19 @@ packages:
     dev: true
     resolution:
       integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
-  /@types/node/14.14.19:
+  /@types/node/14.14.20:
     dev: true
     resolution:
-      integrity: sha512-4nhBPStMK04rruRVtVc6cDqhu7S9GZai0fpXgPXrFpcPX6Xul8xnrjSdGB4KPBVYG/R5+fXWdCM8qBoiULWGPQ==
+      integrity: sha512-Y93R97Ouif9JEOWPIUyU+eyIdyRqQR0I8Ez1dzku4hDx34NWh4HbtIc3WNzwB1Y9ULvNGeu5B8h8bVL5cAk4/A==
   /@types/node/14.14.6:
     dev: true
     resolution:
       integrity: sha512-6QlRuqsQ/Ox/aJEQWBEJG7A9+u7oSYl3mem/K8IzxXG/kAGbV1YPD9Bg9Zw3vyxC/YP+zONKwy8hGkSt1jxFMw==
-  /@typescript-eslint/eslint-plugin/4.11.1_b2dd67832f09d3c75a9232f43d687d74:
+  /@typescript-eslint/eslint-plugin/4.12.0_343306961d6b60bcf6bd09d193a54461:
     dependencies:
-      '@typescript-eslint/experimental-utils': 4.11.1_eslint@7.17.0+typescript@4.1.3
-      '@typescript-eslint/parser': 4.11.1_eslint@7.17.0+typescript@4.1.3
-      '@typescript-eslint/scope-manager': 4.11.1
+      '@typescript-eslint/experimental-utils': 4.12.0_eslint@7.17.0+typescript@4.1.3
+      '@typescript-eslint/parser': 4.12.0_eslint@7.17.0+typescript@4.1.3
+      '@typescript-eslint/scope-manager': 4.12.0
       debug: 4.3.1
       eslint: 7.17.0
       functional-red-black-tree: 1.0.1
@@ -329,13 +329,13 @@ packages:
       typescript:
         optional: true
     resolution:
-      integrity: sha512-fABclAX2QIEDmTMk6Yd7Muv1CzFLwWM4505nETzRHpP3br6jfahD9UUJkhnJ/g2m7lwfz8IlswcwGGPGiq9exw==
-  /@typescript-eslint/experimental-utils/4.11.1_eslint@7.17.0+typescript@4.1.3:
+      integrity: sha512-wHKj6q8s70sO5i39H2g1gtpCXCvjVszzj6FFygneNFyIAxRvNSVz9GML7XpqrB9t7hNutXw+MHnLN/Ih6uyB8Q==
+  /@typescript-eslint/experimental-utils/4.12.0_eslint@7.17.0+typescript@4.1.3:
     dependencies:
       '@types/json-schema': 7.0.6
-      '@typescript-eslint/scope-manager': 4.11.1
-      '@typescript-eslint/types': 4.11.1
-      '@typescript-eslint/typescript-estree': 4.11.1_typescript@4.1.3
+      '@typescript-eslint/scope-manager': 4.12.0
+      '@typescript-eslint/types': 4.12.0
+      '@typescript-eslint/typescript-estree': 4.12.0_typescript@4.1.3
       eslint: 7.17.0
       eslint-scope: 5.1.1
       eslint-utils: 2.1.0
@@ -346,12 +346,12 @@ packages:
       eslint: '*'
       typescript: '*'
     resolution:
-      integrity: sha512-mAlWowT4A6h0TC9F+J5pdbEhjNiEMO+kqPKQ4sc3fVieKL71dEqfkKgtcFVSX3cjSBwYwhImaQ/mXQF0oaI38g==
-  /@typescript-eslint/parser/4.11.1_eslint@7.17.0+typescript@4.1.3:
+      integrity: sha512-MpXZXUAvHt99c9ScXijx7i061o5HEjXltO+sbYfZAAHxv3XankQkPaNi5myy0Yh0Tyea3Hdq1pi7Vsh0GJb0fA==
+  /@typescript-eslint/parser/4.12.0_eslint@7.17.0+typescript@4.1.3:
     dependencies:
-      '@typescript-eslint/scope-manager': 4.11.1
-      '@typescript-eslint/types': 4.11.1
-      '@typescript-eslint/typescript-estree': 4.11.1_typescript@4.1.3
+      '@typescript-eslint/scope-manager': 4.12.0
+      '@typescript-eslint/types': 4.12.0
+      '@typescript-eslint/typescript-estree': 4.12.0_typescript@4.1.3
       debug: 4.3.1
       eslint: 7.17.0
       typescript: 4.1.3
@@ -365,7 +365,7 @@ packages:
       typescript:
         optional: true
     resolution:
-      integrity: sha512-BJ3jwPQu1jeynJ5BrjLuGfK/UJu6uwHxJ/di7sanqmUmxzmyIcd3vz58PMR7wpi8k3iWq2Q11KMYgZbUpRoIPw==
+      integrity: sha512-9XxVADAo9vlfjfoxnjboBTxYOiNY93/QuvcPgsiKvHxW6tOZx1W4TvkIQ2jB3k5M0pbFP5FlXihLK49TjZXhuQ==
   /@typescript-eslint/parser/4.6.1_eslint@7.17.0+typescript@4.1.3:
     dependencies:
       '@typescript-eslint/scope-manager': 4.6.1
@@ -385,15 +385,15 @@ packages:
         optional: true
     resolution:
       integrity: sha512-lScKRPt1wM9UwyKkGKyQDqf0bh6jm8DQ5iN37urRIXDm16GEv+HGEmum2Fc423xlk5NUOkOpfTnKZc/tqKZkDQ==
-  /@typescript-eslint/scope-manager/4.11.1:
+  /@typescript-eslint/scope-manager/4.12.0:
     dependencies:
-      '@typescript-eslint/types': 4.11.1
-      '@typescript-eslint/visitor-keys': 4.11.1
+      '@typescript-eslint/types': 4.12.0
+      '@typescript-eslint/visitor-keys': 4.12.0
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     resolution:
-      integrity: sha512-Al2P394dx+kXCl61fhrrZ1FTI7qsRDIUiVSuN6rTwss6lUn8uVO2+nnF4AvO0ug8vMsy3ShkbxLu/uWZdTtJMQ==
+      integrity: sha512-QVf9oCSVLte/8jvOsxmgBdOaoe2J0wtEmBr13Yz0rkBNkl5D8bfnf6G4Vhox9qqMIoG7QQoVwd2eG9DM/ge4Qg==
   /@typescript-eslint/scope-manager/4.6.1:
     dependencies:
       '@typescript-eslint/types': 4.6.1
@@ -403,22 +403,22 @@ packages:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     resolution:
       integrity: sha512-f95+80r6VdINYscJY1KDUEDcxZ3prAWHulL4qRDfNVD0I5QAVSGqFkwHERDoLYJJWmEAkUMdQVvx7/c2Hp+Bjg==
-  /@typescript-eslint/types/4.11.1:
+  /@typescript-eslint/types/4.12.0:
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     resolution:
-      integrity: sha512-5kvd38wZpqGY4yP/6W3qhYX6Hz0NwUbijVsX2rxczpY6OXaMxh0+5E5uLJKVFwaBM7PJe1wnMym85NfKYIh6CA==
+      integrity: sha512-N2RhGeheVLGtyy+CxRmxdsniB7sMSCfsnbh8K/+RUIXYYq3Ub5+sukRCjVE80QerrUBvuEvs4fDhz5AW/pcL6g==
   /@typescript-eslint/types/4.6.1:
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     resolution:
       integrity: sha512-k2ZCHhJ96YZyPIsykickez+OMHkz06xppVLfJ+DY90i532/Cx2Z+HiRMH8YZQo7a4zVd/TwNBuRCdXlGK4yo8w==
-  /@typescript-eslint/typescript-estree/4.11.1_typescript@4.1.3:
+  /@typescript-eslint/typescript-estree/4.12.0_typescript@4.1.3:
     dependencies:
-      '@typescript-eslint/types': 4.11.1
-      '@typescript-eslint/visitor-keys': 4.11.1
+      '@typescript-eslint/types': 4.12.0
+      '@typescript-eslint/visitor-keys': 4.12.0
       debug: 4.3.1
       globby: 11.0.1
       is-glob: 4.0.1
@@ -435,7 +435,7 @@ packages:
       typescript:
         optional: true
     resolution:
-      integrity: sha512-tC7MKZIMRTYxQhrVAFoJq/DlRwv1bnqA4/S2r3+HuHibqvbrPcyf858lNzU7bFmy4mLeIHFYr34ar/1KumwyRw==
+      integrity: sha512-gZkFcmmp/CnzqD2RKMich2/FjBTsYopjiwJCroxqHZIY11IIoN0l5lKqcgoAPKHt33H2mAkSfvzj8i44Jm7F4w==
   /@typescript-eslint/typescript-estree/4.6.1_typescript@4.1.3:
     dependencies:
       '@typescript-eslint/types': 4.6.1
@@ -457,15 +457,15 @@ packages:
         optional: true
     resolution:
       integrity: sha512-/J/kxiyjQQKqEr5kuKLNQ1Finpfb8gf/NpbwqFFYEBjxOsZ621r9AqwS9UDRA1Rrr/eneX/YsbPAIhU2rFLjXQ==
-  /@typescript-eslint/visitor-keys/4.11.1:
+  /@typescript-eslint/visitor-keys/4.12.0:
     dependencies:
-      '@typescript-eslint/types': 4.11.1
+      '@typescript-eslint/types': 4.12.0
       eslint-visitor-keys: 2.0.0
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     resolution:
-      integrity: sha512-IrlBhD9bm4bdYcS8xpWarazkKXlE7iYb1HzRuyBP114mIaj5DJPo11Us1HgH60dTt41TCZXMaTCAW+OILIYPOg==
+      integrity: sha512-hVpsLARbDh4B9TKYz5cLbcdMIOAoBYgFPCSP9FFS/liSF+b33gVNq8JHY3QGhHNVz85hObvL7BEYLlgx553WCw==
   /@typescript-eslint/visitor-keys/4.6.1:
     dependencies:
       '@typescript-eslint/types': 4.6.1
@@ -2033,9 +2033,9 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
-  /eslint-config-standard-with-typescript/19.0.1_6774e99ad6a6f38f3e157585f188b784:
+  /eslint-config-standard-with-typescript/19.0.1_bf7348a8bc6b56a90b9c3e9e425b0210:
     dependencies:
-      '@typescript-eslint/eslint-plugin': 4.11.1_b2dd67832f09d3c75a9232f43d687d74
+      '@typescript-eslint/eslint-plugin': 4.12.0_343306961d6b60bcf6bd09d193a54461
       '@typescript-eslint/parser': 4.6.1_eslint@7.17.0+typescript@4.1.3
       eslint: 7.17.0
       eslint-config-standard: 14.1.1_059d3abae9f72c72758241bd3c8f389d
@@ -2539,7 +2539,7 @@ packages:
     resolution:
       integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==
   /fsevents/2.1.3:
-    deprecated: Please update to v 2.2.x
+    deprecated: '"Please update to latest v2.3 or v2.2"'
     dev: true
     engines:
       node: ^8.16.0 || ^10.6.0 || >=11.0.0
@@ -4431,10 +4431,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ii4iagi25WusVoiC4B4lq7pbXfAp3D9v5CwfkY33vffw2+pkDjY1D8GaN7spsxvCSx8dkPqOZCEZyfxcmJG2IA==
-  /rollup-plugin-cleanup/3.2.1_rollup@2.35.1:
+  /rollup-plugin-cleanup/3.2.1_rollup@2.36.1:
     dependencies:
       js-cleanup: 1.2.0
-      rollup: 2.35.1
+      rollup: 2.36.1
       rollup-pluginutils: 2.8.2
     dev: true
     engines:
@@ -4443,11 +4443,11 @@ packages:
       rollup: '>=2.0'
     resolution:
       integrity: sha512-zuv8EhoO3TpnrU8MX8W7YxSbO4gmOR0ny06Lm3nkFfq0IVKdBUtHwhVzY1OAJyNCIAdLiyPnOrU0KnO0Fri1GQ==
-  /rollup-plugin-terser/7.0.2_rollup@2.35.1:
+  /rollup-plugin-terser/7.0.2_rollup@2.36.1:
     dependencies:
       '@babel/code-frame': 7.10.4
       jest-worker: 26.6.2
-      rollup: 2.35.1
+      rollup: 2.36.1
       serialize-javascript: 4.0.0
       terser: 5.3.8
     dev: true
@@ -4461,7 +4461,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
-  /rollup/2.35.1:
+  /rollup/2.36.1:
     dev: true
     engines:
       node: '>=10.0.0'
@@ -4469,7 +4469,7 @@ packages:
     optionalDependencies:
       fsevents: 2.1.3
     resolution:
-      integrity: sha512-q5KxEyWpprAIcainhVy6HfRttD9kutQpHbeqDTWnqAFNJotiojetK6uqmcydNMymBEtC4I8bCYR+J3mTMqeaUA==
+      integrity: sha512-eAfqho8dyzuVvrGqpR0ITgEdq0zG2QJeWYh+HeuTbpcaXk8vNFc48B7bJa1xYosTCKx0CuW+447oQOW8HgBIZQ==
   /rrdiagram-js/1.0.7:
     dependencies:
       babel-core: 6.26.3
@@ -5377,9 +5377,9 @@ packages:
 specifiers:
   '@prantlf/railroad-diagrams': 1.0.1
   '@rollup/plugin-json': 4.1.0
-  '@types/node': 14.14.19
-  '@typescript-eslint/eslint-plugin': 4.11.1
-  '@typescript-eslint/parser': 4.11.1
+  '@types/node': 14.14.20
+  '@typescript-eslint/eslint-plugin': 4.12.0
+  '@typescript-eslint/parser': 4.12.0
   benchmark: 2.1.4
   chevrotain: 7.1.0
   colorette: 1.2.1
@@ -5395,7 +5395,7 @@ specifiers:
   minimatch: 3.0.4
   mkdirp: 1.0.4
   nyc: 15.1.0
-  rollup: 2.35.1
+  rollup: 2.36.1
   rollup-plugin-cleanup: 3.2.1
   rollup-plugin-terser: 7.0.2
   rrdiagram-js: 1.0.7

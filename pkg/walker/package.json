@@ -1,6 +1,6 @@
 {
   "name": "oscript-ast-walker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A walker for nodes of the abstract syntax tree (AST) for the OScript language.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
   "keywords": [

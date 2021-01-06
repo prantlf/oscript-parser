@@ -361,9 +361,9 @@ export type Expression = BinaryExpression | ConditionalExpression
 
 export interface ConditionalExpression extends Node {
   type: 'ConditionalExpression'
-  test: Expression
-  consequent: Statement[]
-  alternate: Statement[]
+  test: BinaryExpression
+  consequent: Expression
+  alternate: Expression
 }
 
 export interface BinaryExpression extends Node {
@@ -439,7 +439,7 @@ export interface CallExpression extends Node {
 
 export type PrimaryExpression = XlateExpression | ParenthesisExpression |
 ThisExpression | SuperExpression | AssocExpression | ListExpression |
-ListComprehension | ObjectName | Identifier | Literal
+ListComprehension | ObjectName | Identifier | Literal | ObjectExpression
 
 export interface ThisExpression extends Node {
   type: 'ThisExpression'
@@ -453,6 +453,8 @@ export interface AssocExpression extends Node {
   type: 'AssocExpression'
   properties: Property[]
 }
+
+export type ObjectExpression = AssocExpression
 
 export interface Property extends Node {
   type: 'Property'

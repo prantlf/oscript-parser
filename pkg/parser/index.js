@@ -1440,6 +1440,7 @@ function parseSwitchStatement () {
         continue
       }
     }
+    if (!caseOrDefault) handleUnexpectedToken(token, 'case, default or end')
     statements.push(parseStatement())
   }
 
