@@ -87,7 +87,7 @@ Copyright (c) 2021 Ferdinand Prantl
 
 Licensed under the MIT license.
 
-[OScript language]: ../../doc/grammar.md#oscript-language-grammar
-[abstract syntax tree]: ../../dist/index.d.ts#L115
-[AST]: ../../dist/index.d.ts#L115
-[oscript-parser]: ../..#readme
+[OScript language]: https://github.com/prantlf/oscript-parser/blob/master/doc/grammar.md#oscript-language-grammar
+[abstract syntax tree]: https://github.com/prantlf/oscript-parser/blob/master/dist/index.d.ts#L115
+[AST]: https://github.com/prantlf/oscript-parser/blob/master/dist/index.d.ts#L115
+[oscript-parser]: https://github.com/prantlf/oscript-parser#readme
