@@ -1765,8 +1765,7 @@ function parseParenthesisExpression () {
 //   [<PrimaryExpression>]
 //   [[<MemberExpression>] [<SliceExpression>] [<CallExpression>]]*
 
-function parseMemberSliceCallExpression () {
-  const startToken = token
+function parseMemberSliceCallExpression (startToken = token) {
   let left = consumePunctuator('.') // a starting dot alone dereferences this
     ? parseMemberExpression(startToken, placeNode(ast.thisExpression(), prevToken))
     : parsePrimaryExpression()
@@ -1794,13 +1793,17 @@ function parseMemberExpression (startToken, object) {
     return placeNode(ast.memberExpression(object, property, true), startToken)
   }
   let property
-  switch (token.type) {
-    case Keyword: case Identifier:
-      property = parseIdentifier()
-      break
-    default: // StringLiteral
-      // A string can appear in the chain of dereferencing in place of an identifier
-      property = parseLiteral()
+  if (token.type === Punctuator && token.value === '.') {
+    property = parseMemberSliceCallExpression(startToken)
+  } else {
+    switch (token.type) {
+      case Keyword: case Identifier:
+        property = parseIdentifier()
+        break
+      default: // StringLiteral
+        // A string can appear in the chain of dereferencing in place of an identifier
+        property = parseLiteral()
+    }
   }
   return placeNode(ast.memberExpression(object, property), startToken)
 }

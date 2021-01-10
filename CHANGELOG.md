@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Bug Fixes
+
+* Allow dereferencing `this` without the `this` keyword (chain the dot operators).
+* Correct typings for `SliceExpression`.
+
 ## 0.2.4
 
 ### Parser
