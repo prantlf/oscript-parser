@@ -6,7 +6,7 @@ import { formatErrorContext, colorizeErrorContext, shrinkWhitespace } from './er
 export { version } from '../../package.json'
 
 export function matchArgument (arg) {
-  return /^(?:-|--)(?:(no)-)?([-a-z]+)$/.exec(arg)
+  return /^(?:-|--)(?:(no)-)?([-a-zA-Z]+)$/.exec(arg)
 }
 
 export function toCamelCase (arg) {
@@ -43,7 +43,7 @@ export function printError (output, source, start, error, { context, verbose } =
   output.write(bold(white(`${source.name}${location}: `)) +
     bold(red('error: ')) + bold(white(shrinkWhitespace(message))) + '\n')
   if (context) printErrorContext(output, source, error)
-  printWarnings(output, source, warnings, { context })
+  if (warnings) printWarnings(output, source, warnings, { context })
   if (verbose) console.log(error.stack)
 }
 
@@ -68,5 +68,6 @@ export function formatTime (start) {
 }
 
 export function formatWarningCount (warnings) {
-  return `${warnings.length} warning${warnings.length !== 1 ? 's' : ''}`
+  const length = warnings ? warnings.length : 0
+  return `${length} warning${length !== 1 ? 's' : ''}`
 }
