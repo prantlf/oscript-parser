@@ -126,9 +126,6 @@
                 text: "%="
               -
                 type: Terminal
-                text: "~="
-              -
-                type: Terminal
                 text: "<<="
               -
                 type: Terminal

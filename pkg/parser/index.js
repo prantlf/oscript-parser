@@ -401,12 +401,8 @@ function scanOtherToken (charCode, peekCharCode) {
       if (peekCharCode === 61) return scanPunctuator('==')
       return scanPunctuator('=')
 
-    case 126: // ~
-      if (peekCharCode === 61) return scanPunctuator('~=')
-      return scanPunctuator('~')
-
     case 37: case 44: case 47: case 63: case 64: case 123: case 125: case 91:
-    case 92: case 93: case 40: case 41: case 59: // % , / ? @ { } [ \ ] ( ) ;
+    case 92: case 93: case 40: case 41: case 59: case 126: // % , / ? @ { } [ \ ] ( ) ; ~
       return scanPunctuator(input.charAt(offset))
   }
   handleUnexpectedToken(String.fromCharCode(charCode))

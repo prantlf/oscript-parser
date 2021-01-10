@@ -388,8 +388,7 @@ type BitwiseOperator =
 type LogicalOperator = '||' | '&&' | 'or' | 'and'
 
 type AssignmentOperator =
-  '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '~=' | '<<=' | '>>=' |
-  '|=' | '^=' | '&='
+  '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '<<=' | '>>=' | '|=' | '^=' | '&='
 
 export interface UnaryExpression extends Node {
   type: 'UnaryExpression'

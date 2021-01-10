@@ -373,10 +373,10 @@
 <path d="M505.5 190a10 10 0 0 0 10 -10v-130a10 10 0 0 1 10 -10"></path>
 <path d="M440 40a10 10 0 0 1 10 10v160a10 10 0 0 0 10 10"></path>
 <g class="terminal">
-<path d="M460 220h4.25"></path>
-<path d="M501.25 220h4.25"></path>
-<rect x="464.25" y="209" width="37" height="22" rx="10" ry="10"></rect>
-<text x="482.75" y="224">~=</text>
+<path d="M460 220h0"></path>
+<path d="M505.5 220h0"></path>
+<rect x="460" y="209" width="45.5" height="22" rx="10" ry="10"></rect>
+<text x="482.75" y="224">&#60;&#60;=</text>
 </g>
 <path d="M505.5 220a10 10 0 0 0 10 -10v-160a10 10 0 0 1 10 -10"></path>
 <path d="M440 40a10 10 0 0 1 10 10v190a10 10 0 0 0 10 10"></path>
@@ -384,15 +384,15 @@
 <path d="M460 250h0"></path>
 <path d="M505.5 250h0"></path>
 <rect x="460" y="239" width="45.5" height="22" rx="10" ry="10"></rect>
-<text x="482.75" y="254">&#60;&#60;=</text>
+<text x="482.75" y="254">>>=</text>
 </g>
 <path d="M505.5 250a10 10 0 0 0 10 -10v-190a10 10 0 0 1 10 -10"></path>
 <path d="M440 40a10 10 0 0 1 10 10v220a10 10 0 0 0 10 10"></path>
 <g class="terminal">
-<path d="M460 280h0"></path>
-<path d="M505.5 280h0"></path>
-<rect x="460" y="269" width="45.5" height="22" rx="10" ry="10"></rect>
-<text x="482.75" y="284">>>=</text>
+<path d="M460 280h4.25"></path>
+<path d="M501.25 280h4.25"></path>
+<rect x="464.25" y="269" width="37" height="22" rx="10" ry="10"></rect>
+<text x="482.75" y="284">|=</text>
 </g>
 <path d="M505.5 280a10 10 0 0 0 10 -10v-220a10 10 0 0 1 10 -10"></path>
 <path d="M440 40a10 10 0 0 1 10 10v250a10 10 0 0 0 10 10"></path>
@@ -400,7 +400,7 @@
 <path d="M460 310h4.25"></path>
 <path d="M501.25 310h4.25"></path>
 <rect x="464.25" y="299" width="37" height="22" rx="10" ry="10"></rect>
-<text x="482.75" y="314">|=</text>
+<text x="482.75" y="314">&#38;=</text>
 </g>
 <path d="M505.5 310a10 10 0 0 0 10 -10v-250a10 10 0 0 1 10 -10"></path>
 <path d="M440 40a10 10 0 0 1 10 10v280a10 10 0 0 0 10 10"></path>
@@ -408,17 +408,9 @@
 <path d="M460 340h4.25"></path>
 <path d="M501.25 340h4.25"></path>
 <rect x="464.25" y="329" width="37" height="22" rx="10" ry="10"></rect>
-<text x="482.75" y="344">&#38;=</text>
+<text x="482.75" y="344">^=</text>
 </g>
 <path d="M505.5 340a10 10 0 0 0 10 -10v-280a10 10 0 0 1 10 -10"></path>
-<path d="M440 40a10 10 0 0 1 10 10v310a10 10 0 0 0 10 10"></path>
-<g class="terminal">
-<path d="M460 370h4.25"></path>
-<path d="M501.25 370h4.25"></path>
-<rect x="464.25" y="359" width="37" height="22" rx="10" ry="10"></rect>
-<text x="482.75" y="374">^=</text>
-</g>
-<path d="M505.5 370a10 10 0 0 0 10 -10v-310a10 10 0 0 1 10 -10"></path>
 </g>
 <path d="M525.5 40h10"></path>
 </g>

@@ -150,10 +150,9 @@ function isBinaryOperator (symbol) {
         symbol === '||' || symbol === 'in' || symbol === '+=' ||
         symbol === '-=' || symbol === '*=' || symbol === '&=' ||
         symbol === '|=' || symbol === '^=' || symbol === '^^' ||
-        symbol === '~=' || symbol === '<<' || symbol === '>>' ||
-        symbol === 'or' || symbol === 'eq' || symbol === 'ne' ||
-        symbol === 'lt' || symbol === 'le' || symbol === 'gt' ||
-        symbol === 'ge'
+        symbol === '<<' || symbol === '>>' || symbol === 'or' ||
+        symbol === 'eq' || symbol === 'ne' || symbol === 'lt' ||
+        symbol === 'le' || symbol === 'gt' || symbol === 'ge'
     case 3:
       return symbol === 'and' || symbol === 'xor'
   }
