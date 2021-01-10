@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.3
+## 0.2.4
 
 ### Parser
 
@@ -13,6 +13,10 @@ Skip omitted nodes `for.init`, `slice.start` and `slice.end` expressions during 
 ### Interpreter 0.0.1
 
 Initial release.
+
+## 0.2.3
+
+Fix parsing of an incomplete `switch` statement.
 
 ## 0.2.2
 
