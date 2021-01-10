@@ -1,4 +1,4 @@
-# oscript-parser
+# OScript Parser
 
 [![NPM version](https://badge.fury.io/js/oscript-parser.png)](http://badge.fury.io/js/oscript-parser)
 [![Build Status](https://github.com/prantlf/oscript-parser/workflows/Test/badge.svg)](https://github.com/prantlf/oscript-parser/actions)
@@ -7,7 +7,7 @@
 [![devDependency Status](https://david-dm.org/prantlf/oscript-parser/dev-status.svg)](https://david-dm.org/prantlf/oscript-parser#info=devDependencies)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-A parser for the [OScript language] written in JavaScript.
+A parser for the [OScript language] written in JavaScript. Returns an [abstract syntax tree] (AST). See also [oscript-ast-walker] for traversing the [AST] and [oscript-interpreter] for its execution.
 
 ## Synopsis
 
@@ -243,4 +243,8 @@ Licensed under the MIT license.
 [OScript language]: ./doc/grammar.md#oscript-language-grammar
 [language grammar]: ./doc/grammar.md#oscript-language-grammar
 [AST node declarations]: ./dist/index.d.ts#L115
-[example.os]: https://github.com/prantlf/vscode-oscript/blob/master/pkg/examples/example.os
+[abstract syntax tree]: ./dist/index.d.ts#L115
+[AST]: ./dist/index.d.ts#L115
+[example.os]: https://github.com/prantlf/oscript-parser/blob/master/pkg/examples/example.os
+[oscript-ast-walker]: https://github.com/prantlf/oscript-parser/tree/master/pkg/walker#readme
+[oscript-interpreter]: https://github.com/prantlf/oscript-parser/tree/master/pkg/interpreter#readme
