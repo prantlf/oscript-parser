@@ -22,6 +22,12 @@ function isUnaryOperatorUsingRegularExpression (symbol) {
   return /^!|-|~|\$\$|\$|not$/.test(symbol)
 }
 
+const set = new Set(['!', '-', '~', '$$', '$', 'not'])
+
+function isUnaryOperatorUsingSet (symbol) {
+  return set.has(symbol)
+}
+
 function dividedByLength () {
   isUnaryOperatorDividedByLength('')
   isUnaryOperatorDividedByLength('!')
@@ -38,6 +44,14 @@ function withOneCondition () {
   isUnaryOperatorWithOneCondition('test')
 }
 
+function usingSet () {
+  isUnaryOperatorUsingSet('')
+  isUnaryOperatorUsingSet('!')
+  isUnaryOperatorUsingSet('~')
+  isUnaryOperatorUsingSet('not')
+  isUnaryOperatorUsingSet('test')
+}
+
 function usingRegularExpression () {
   isUnaryOperatorUsingRegularExpression('')
   isUnaryOperatorUsingRegularExpression('!')
@@ -49,5 +63,6 @@ function usingRegularExpression () {
 createSuite('Matching unary operators...')
   .add('divided by length', dividedByLength)
   .add('with one condition', withOneCondition)
+  .add('using set', usingSet)
   .add('using regular expression', usingRegularExpression)
   .start()

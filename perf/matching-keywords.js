@@ -56,6 +56,12 @@ function isKeywordUsingRegularExpression (id) {
   return /^by|do|eq|ge|gt|if|in|le|lt|ne|or|to|and|end|for|not|case|else|goto|none|then|break|final|until|using|while|downto|elseif|object|public|repeat|return|script|switch|breakif|default|nodebug|package|private|continue|function|inherits|override|endscript|interface|continueif$/.test(id)
 }
 
+const set = new Set(['by', 'do', 'eq', 'ge', 'gt', 'if', 'in', 'le', 'lt', 'ne', 'or', 'to', 'and', 'end', 'for', 'not', 'case', 'else', 'goto', 'none', 'then', 'break', 'final', 'until', 'using', 'while', 'downto', 'elseif', 'object', 'public', 'repeat', 'return', 'script', 'switch', 'breakif', 'default', 'nodebug', 'package', 'private', 'continue', 'function', 'inherits', 'override', 'endscript', 'interface', 'continueif'])
+
+function isKeywordUsingSet (id) {
+  return set.has(id)
+}
+
 function dividedByLength () {
   isKeywordDividedByLength('')
   isKeywordDividedByLength('by')
@@ -80,8 +86,17 @@ function usingRegularExpression () {
   isKeywordUsingRegularExpression('test')
 }
 
+function usingSet () {
+  isKeywordUsingSet('')
+  isKeywordUsingSet('by')
+  isKeywordUsingSet('object')
+  isKeywordUsingSet('continueif')
+  isKeywordUsingSet('test')
+}
+
 createSuite('Matching keywords...')
   .add('divided by length', dividedByLength)
   .add('with one condition', withOneCondition)
+  .add('using set', usingSet)
   .add('using regular expression', usingRegularExpression)
   .start()

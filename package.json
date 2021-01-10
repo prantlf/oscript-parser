@@ -51,11 +51,13 @@
     "test": "npm run check",
     "posttest": "nyc report && nyc check-coverage",
     "measure:ast-size": "node -r esm perf/ast-size",
-    "measure:matching-ast": "node -r esm perf/matching-ast",
+    "measure:interpreting-ast": "node -r esm perf/interpreting-ast",
     "measure:matching-keywords": "node -r esm perf/matching-keywords",
     "measure:matching-types": "node -r esm perf/matching-types",
+    "measure:matching-unary-operators": "node -r esm perf/matching-unary-operators",
+    "measure:operator-lookup": "node -r esm perf/operator-lookup",
     "measure:walking-ast": "node -r esm perf/walking-ast",
-    "measure": "npm run measure:matching-keywords && npm run measure:matching-types && npm run measure:ast-size && npm run measure:walking-ast && npm run measure:matching-ast",
+    "measure": "npm run measure:matching-keywords && npm run measure:matching-types && npm run measure:matching-unary-operators && npm run measure:operator-lookup && npm run measure:ast-size && npm run measure:walking-ast && npm run measure:interpreting-ast",
     "prepare": "npm run build && npm run doc"
   },
   "nyc": {

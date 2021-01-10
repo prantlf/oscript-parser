@@ -31,6 +31,13 @@ function isTypeUsingRegularExpression (id) {
   return /^set|date|list|real|void|assoc|bytes|frame|object|record|string|boolean|dynamic|integer|recarray$/.test(id)
 }
 
+const set = new Set(['set', 'date', 'list', 'real', 'void', 'assoc', 'bytes',
+  'frame', 'object', 'record', 'string', 'boolean', 'dynamic', 'integer', 'recarray'])
+
+function isTypeUsingSet (id) {
+  return set.has(id)
+}
+
 function dividedByLength () {
   isTypeDividedByLength('')
   isTypeDividedByLength('set')
@@ -47,6 +54,14 @@ function withOneCondition () {
   isTypeWithOneCondition('test')
 }
 
+function usingSet () {
+  isTypeUsingSet('')
+  isTypeUsingSet('set')
+  isTypeUsingSet('object')
+  isTypeUsingSet('recrarray')
+  isTypeUsingSet('test')
+}
+
 function usingRegularExpression () {
   isTypeUsingRegularExpression('')
   isTypeUsingRegularExpression('set')
@@ -58,5 +73,6 @@ function usingRegularExpression () {
 createSuite('Matching types...')
   .add('divided by length', dividedByLength)
   .add('with one condition', withOneCondition)
+  .add('using set', usingSet)
   .add('using regular expression', usingRegularExpression)
   .start()
