@@ -1,8 +1,29 @@
 # Changelog
 
+## 0.2.3
+
+### Parser
+
+Remove the operator `~=` that does not exist.
+
+### Walker 0.0.3
+
+Skip omitted nodes `for.init`, `slice.start` and `slice.end` expressions during walking.
+
+### Interpreter 0.0.1
+
+Initial release.
+
 ## 0.2.2
 
+### Parser
+
 Fix parsing of the member expression without the explicit `this` object.
+
+### Walker 0.0.2
+
+* Recognize `ObjectExpression` as `AssocExpression` for compatibility.
+* Fix walking of `consequent` and `alternate` of `ConditionalExpression`.
 
 ## 0.2.1
 
@@ -32,6 +53,10 @@ Fix parsing of the `switch` statement.
 
 * Correct parsed node and error locations.
 * Correct typings for AST nodes.
+
+### Walker 0.0.1
+
+Initial release.
 
 ## 0.1.0
 

@@ -15,7 +15,7 @@
     "type": "git",
     "url": "https://github.com/prantlf/oscript-parser.git"
   },
-  "homepage": "https://prantlf.github.io/oscript-parser/",
+  "homepage": "https://github.com/prantlf/oscript-parser#readme",
   "bugs": "https://github.com/prantlf/oscript-parser/issues",
   "license": "MIT",
   "engines": {
@@ -41,8 +41,8 @@
     "build": "rollup -c build/rollup.config.js",
     "doc": "node -r esm build/diagrams",
     "watch": "rollup -c build/rollup.config.js -w",
-    "lint:js": "eslint --cache --cache-file .eslintcache 'build/*.js' 'pkg/!(dist)/*.js' 'perf/*.js' 'test/*.js'",
-    "lint:ts": "eslint --cache --cache-file .tslintcache dist/*.d.ts pkg/walker/dist/*.d.ts",
+    "lint:js": "eslint --cache --cache-file .eslintcache 'build/*.js' 'pkg/**/!(dist)/*.js' 'perf/*.js' 'test/*.js'",
+    "lint:ts": "eslint --cache --cache-file .tslintcache dist/*.d.ts pkg/walker/dist/*.d.ts pkg/interpreter/dist/*.d.ts",
     "lint": "npm run lint:js && npm run lint:ts",
     "check:parser": "nyc --silent --no-clean node -r esm test/parse",
     "check:lexer": "nyc --silent node -r esm test/tokenize",

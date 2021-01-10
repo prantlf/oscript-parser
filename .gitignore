@@ -5,6 +5,8 @@
 coverage
 dist/bin
 dist/*.[jm]*
+pkg/interpreter/dist/bin
+pkg/interpreter/dist/*.[jm]*
 pkg/walker/dist/*.[jm]*
 node_modules
 npm-debug.log

@@ -2,13 +2,15 @@ import json from '@rollup/plugin-json'
 import cleanup from 'rollup-plugin-cleanup'
 import { terser } from 'rollup-plugin-terser'
 
-const name = 'oscript'
+const globals = { fs: 'fs', 'oscript-ast-walker': 'oscriptAstWalker' }
 const sourcemap = true
 const external = [
-  'colorette', 'fs', 'oscript-parser', 'path', 'perf_hooks', 'tiny-glob/sync'
+  'colorette', 'fs', 'oscript-ast-walker', 'oscript-interpreter',
+  'oscript-parser', 'path', 'perf_hooks', 'tiny-glob/sync'
 ]
 
 function library () {
+  const name = 'oscript'
   const outprefix = 'dist/index'
   return {
     input: 'pkg/parser/index.js',
@@ -28,34 +30,38 @@ function library () {
   }
 }
 
-function subpkg (name) {
+function subpkg (name, variable) {
   const outprefix = `pkg/${name}/dist/index`
   return {
-    input: `pkg/${name}/index.js`,
+    input: `pkg/${name}/src/index.js`,
     output: [
       { file: `${outprefix}.js`, format: 'cjs', sourcemap },
       { file: `${outprefix}.mjs`, format: 'esm', sourcemap },
-      { file: `${outprefix}.umd.js`, format: 'umd', name, sourcemap },
+      { file: `${outprefix}.umd.js`, format: 'umd', name: variable, globals, sourcemap },
       {
         file: `${outprefix}.umd.min.js`,
         format: 'umd',
-        name,
+        name: variable,
+        globals,
         sourcemap,
         plugins: [terser()]
       }
     ],
+    external,
     plugins: [cleanup()]
   }
 }
 
-function script (name) {
+function script (name, paths, pkg) {
+  const input = pkg ? `pkg/${pkg}/src/${name}.js` : `pkg/${name}/index.js`
+  const file = pkg ? `pkg/${pkg}/dist/bin/${name}` : `dist/bin/${name}`
   return {
-    input: `pkg/${name}/index.js`,
+    input,
     output: {
-      file: `dist/bin/${name}`,
+      file,
       format: 'cjs',
       banner: '#!/usr/bin/env node',
-      paths: { 'oscript-parser': '..' },
+      paths,
       sourcemap
     },
     external,
@@ -63,4 +69,11 @@ function script (name) {
   }
 }
 
-export default [library(), subpkg('walker'), script('osparse'), script('oslint')]
+export default [
+  library(),
+  subpkg('walker', 'oscriptAstWalker'),
+  subpkg('interpreter', 'oscriptInterpreter'),
+  script('osparse', { 'oscript-parser': '..' }),
+  script('oslint', { 'oscript-parser': '..' }),
+  script('osexec', { 'oscript-interpreter': '..' }, 'interpreter')
+]
