@@ -245,6 +245,6 @@ Licensed under the MIT license.
 [AST node declarations]: ./dist/index.d.ts#L115
 [abstract syntax tree]: ./dist/index.d.ts#L115
 [AST]: ./dist/index.d.ts#L115
-[example.os]: https://github.com/prantlf/oscript-parser/blob/master/pkg/examples/example.os
+[example.os]: https://github.com/prantlf/vscode-oscript/blob/master/pkg/examples/example.os
 [oscript-ast-walker]: https://github.com/prantlf/oscript-parser/tree/master/pkg/walker#readme
 [oscript-interpreter]: https://github.com/prantlf/oscript-parser/tree/master/pkg/interpreter#readme
