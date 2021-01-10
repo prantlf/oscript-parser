@@ -1,0 +1,8 @@
+{
+  "name": "oscript-benchmarks",
+  "private": "true",
+  "description": "Measure performance of different implementations of parser and AST walker parts.",
+  "devDependencies": {
+    "benchmark": "2.1.4"
+  }
+}

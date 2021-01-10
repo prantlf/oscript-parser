@@ -1,0 +1,372 @@
+{
+  "type": 1,
+  "body": {
+    "type": 2,
+    "name": {
+      "type": 5,
+      "name": [
+        {
+          "type": 49,
+          "value": "library"
+        }
+      ]
+    },
+    "object": {
+      "type": 3,
+      "modifier": "public",
+      "id": {
+        "type": 49,
+        "value": "document"
+      },
+      "superObject": {
+        "type": 5,
+        "name": [
+          {
+            "type": 49,
+            "value": "core"
+          },
+          {
+            "type": 49,
+            "value": "node"
+          }
+        ]
+      },
+      "body": [
+        {
+          "type": 4,
+          "id": {
+            "type": 49,
+            "value": "workspace"
+          },
+          "featureType": "integer",
+          "modifier": "private",
+          "init": {
+            "type": 34,
+            "operator": "-",
+            "argument": {
+              "type": 51,
+              "literalType": "integer",
+              "value": 2000
+            }
+          }
+        },
+        {
+          "type": 11,
+          "id": {
+            "type": 49,
+            "value": "getdocument"
+          },
+          "functionType": "dapinode",
+          "modifier": "public",
+          "params": [
+            {
+              "type": 12,
+              "id": {
+                "type": 49,
+                "value": "id"
+              },
+              "parameterType": "integer"
+            }
+          ],
+          "body": [
+            {
+              "type": 30,
+              "variableType": "dapinode",
+              "declarations": [
+                {
+                  "type": 31,
+                  "id": {
+                    "type": 49,
+                    "value": "node"
+                  },
+                  "init": {
+                    "type": 38,
+                    "callee": {
+                      "type": 35,
+                      "object": {
+                        "type": 49,
+                        "value": "dapi"
+                      },
+                      "property": {
+                        "type": 49,
+                        "value": "getnodebyid"
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": 49,
+                        "value": "id"
+                      },
+                      {
+                        "type": 49,
+                        "value": "workspace"
+                      },
+                      {
+                        "type": 51,
+                        "literalType": "boolean",
+                        "value": false
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": 13,
+              "test": {
+                "type": 33,
+                "operator": "==",
+                "left": {
+                  "type": 33,
+                  "operator": "and",
+                  "left": {
+                    "type": 34,
+                    "operator": "!",
+                    "argument": {
+                      "type": 38,
+                      "callee": {
+                        "type": 49,
+                        "value": "iserror"
+                      },
+                      "arguments": [
+                        {
+                          "type": 49,
+                          "value": "node"
+                        }
+                      ]
+                    }
+                  },
+                  "right": {
+                    "type": 35,
+                    "object": {
+                      "type": 49,
+                      "value": "node"
+                    },
+                    "property": {
+                      "type": 49,
+                      "value": "psubtype"
+                    }
+                  }
+                },
+                "right": {
+                  "type": 49,
+                  "value": "$document"
+                }
+              },
+              "consequent": [
+                {
+                  "type": 29,
+                  "argument": {
+                    "type": 49,
+                    "value": "node"
+                  }
+                }
+              ],
+              "otherClauses": [
+                {
+                  "type": 14,
+                  "test": {
+                    "type": 38,
+                    "callee": {
+                      "type": 35,
+                      "object": {
+                        "type": 38,
+                        "callee": {
+                          "type": 49,
+                          "value": "iserror"
+                        },
+                        "arguments": [
+                          {
+                            "type": 49,
+                            "value": "node"
+                          }
+                        ]
+                      },
+                      "property": {
+                        "type": 49,
+                        "value": "clear"
+                      }
+                    },
+                    "arguments": []
+                  },
+                  "consequent": [
+                    {
+                      "type": 29,
+                      "argument": {
+                        "type": 38,
+                        "callee": {
+                          "type": 49,
+                          "value": "error"
+                        },
+                        "arguments": [
+                          {
+                            "type": 51,
+                            "literalType": "integer",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "alternate": [
+                {
+                  "type": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": 10,
+          "id": {
+            "type": 49,
+            "value": "clear"
+          },
+          "body": [
+            {
+              "type": 30,
+              "variableType": "list",
+              "declarations": [
+                {
+                  "type": 31,
+                  "id": {
+                    "type": 49,
+                    "value": "cached"
+                  },
+                  "init": {
+                    "type": 38,
+                    "callee": {
+                      "type": 49,
+                      "value": "getcache"
+                    },
+                    "arguments": []
+                  }
+                }
+              ]
+            },
+            {
+              "type": 30,
+              "variableType": "object",
+              "declarations": [
+                {
+                  "type": 31,
+                  "id": {
+                    "type": 49,
+                    "value": "item"
+                  }
+                }
+              ]
+            },
+            {
+              "type": 20,
+              "left": {
+                "type": 49,
+                "value": "item"
+              },
+              "right": {
+                "type": 49,
+                "value": "cached"
+              },
+              "body": [
+                {
+                  "type": 15,
+                  "discriminant": {
+                    "type": 35,
+                    "object": {
+                      "type": 49,
+                      "value": "item"
+                    },
+                    "property": {
+                      "type": 49,
+                      "value": "type"
+                    }
+                  },
+                  "cases": [
+                    {
+                      "type": 16,
+                      "tests": [
+                        {
+                          "type": 51,
+                          "literalType": "integer",
+                          "value": 144
+                        }
+                      ],
+                      "consequent": [
+                        {
+                          "type": 22
+                        }
+                      ]
+                    },
+                    {
+                      "type": 16,
+                      "tests": [],
+                      "consequent": [
+                        {
+                          "type": 24
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": 11,
+              "id": {
+                "type": 49,
+                "value": "getcache"
+              },
+              "functionType": "list",
+              "params": [],
+              "body": [
+                {
+                  "type": 30,
+                  "variableType": "list",
+                  "declarations": [
+                    {
+                      "type": 31,
+                      "id": {
+                        "type": 49,
+                        "value": "cached"
+                      },
+                      "init": {
+                        "type": 44,
+                        "elements": [
+                          {
+                            "type": 51,
+                            "literalType": "integer",
+                            "value": 1
+                          },
+                          {
+                            "type": 51,
+                            "literalType": "integer",
+                            "value": 2
+                          },
+                          {
+                            "type": 51,
+                            "literalType": "integer",
+                            "value": 3
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": 29,
+                  "argument": {
+                    "type": 49,
+                    "value": "cached"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": []
+}

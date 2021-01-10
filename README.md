@@ -7,7 +7,7 @@
 [![devDependency Status](https://david-dm.org/prantlf/oscript-parser/dev-status.svg)](https://david-dm.org/prantlf/oscript-parser#info=devDependencies)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-A parser for the [OScript language] written in JavaScript. Returns an [abstract syntax tree] (AST). See also [oscript-ast-walker] for traversing the [AST] and [oscript-interpreter] for its execution.
+A parser for the [OScript language] written in JavaScript. Returns an [abstract syntax tree] (AST). See also [oscript-ast-walker] for traversing the AST and [oscript-interpreter] for its execution.
 
 ## Synopsis
 

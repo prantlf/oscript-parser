@@ -1,0 +1,372 @@
+{
+  "type": "Program",
+  "body": {
+    "type": "PackageDeclaration",
+    "name": {
+      "type": "ObjectName",
+      "name": [
+        {
+          "type": "Identifier",
+          "value": "library"
+        }
+      ]
+    },
+    "object": {
+      "type": "ObjectDeclaration",
+      "modifier": "public",
+      "id": {
+        "type": "Identifier",
+        "value": "document"
+      },
+      "superObject": {
+        "type": "ObjectName",
+        "name": [
+          {
+            "type": "Identifier",
+            "value": "core"
+          },
+          {
+            "type": "Identifier",
+            "value": "node"
+          }
+        ]
+      },
+      "body": [
+        {
+          "type": "FeatureDeclaration",
+          "id": {
+            "type": "Identifier",
+            "value": "workspace"
+          },
+          "featureType": "integer",
+          "modifier": "private",
+          "init": {
+            "type": "UnaryExpression",
+            "operator": "-",
+            "argument": {
+              "type": "Literal",
+              "literalType": "integer",
+              "value": 2000
+            }
+          }
+        },
+        {
+          "type": "FunctionDeclaration",
+          "id": {
+            "type": "Identifier",
+            "value": "getdocument"
+          },
+          "functionType": "dapinode",
+          "modifier": "public",
+          "params": [
+            {
+              "type": "Parameter",
+              "id": {
+                "type": "Identifier",
+                "value": "id"
+              },
+              "parameterType": "integer"
+            }
+          ],
+          "body": [
+            {
+              "type": "VariableDeclaration",
+              "variableType": "dapinode",
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "id": {
+                    "type": "Identifier",
+                    "value": "node"
+                  },
+                  "init": {
+                    "type": "CallExpression",
+                    "callee": {
+                      "type": "MemberExpression",
+                      "object": {
+                        "type": "Identifier",
+                        "value": "dapi"
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "value": "getnodebyid"
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "value": "id"
+                      },
+                      {
+                        "type": "Identifier",
+                        "value": "workspace"
+                      },
+                      {
+                        "type": "Literal",
+                        "literalType": "boolean",
+                        "value": false
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "IfStatement",
+              "test": {
+                "type": "BinaryExpression",
+                "operator": "==",
+                "left": {
+                  "type": "BinaryExpression",
+                  "operator": "and",
+                  "left": {
+                    "type": "UnaryExpression",
+                    "operator": "!",
+                    "argument": {
+                      "type": "CallExpression",
+                      "callee": {
+                        "type": "Identifier",
+                        "value": "iserror"
+                      },
+                      "arguments": [
+                        {
+                          "type": "Identifier",
+                          "value": "node"
+                        }
+                      ]
+                    }
+                  },
+                  "right": {
+                    "type": "MemberExpression",
+                    "object": {
+                      "type": "Identifier",
+                      "value": "node"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "value": "psubtype"
+                    }
+                  }
+                },
+                "right": {
+                  "type": "Identifier",
+                  "value": "$document"
+                }
+              },
+              "consequent": [
+                {
+                  "type": "ReturnStatement",
+                  "argument": {
+                    "type": "Identifier",
+                    "value": "node"
+                  }
+                }
+              ],
+              "otherClauses": [
+                {
+                  "type": "ElseIfClause",
+                  "test": {
+                    "type": "CallExpression",
+                    "callee": {
+                      "type": "MemberExpression",
+                      "object": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "Identifier",
+                          "value": "iserror"
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "value": "node"
+                          }
+                        ]
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "value": "clear"
+                      }
+                    },
+                    "arguments": []
+                  },
+                  "consequent": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "Identifier",
+                          "value": "error"
+                        },
+                        "arguments": [
+                          {
+                            "type": "Literal",
+                            "literalType": "integer",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "alternate": [
+                {
+                  "type": "EmptyStatement"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ScriptDeclaration",
+          "id": {
+            "type": "Identifier",
+            "value": "clear"
+          },
+          "body": [
+            {
+              "type": "VariableDeclaration",
+              "variableType": "list",
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "id": {
+                    "type": "Identifier",
+                    "value": "cached"
+                  },
+                  "init": {
+                    "type": "CallExpression",
+                    "callee": {
+                      "type": "Identifier",
+                      "value": "getcache"
+                    },
+                    "arguments": []
+                  }
+                }
+              ]
+            },
+            {
+              "type": "VariableDeclaration",
+              "variableType": "object",
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "id": {
+                    "type": "Identifier",
+                    "value": "item"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ForEachStatement",
+              "left": {
+                "type": "Identifier",
+                "value": "item"
+              },
+              "right": {
+                "type": "Identifier",
+                "value": "cached"
+              },
+              "body": [
+                {
+                  "type": "SwitchStatement",
+                  "discriminant": {
+                    "type": "MemberExpression",
+                    "object": {
+                      "type": "Identifier",
+                      "value": "item"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "value": "type"
+                    }
+                  },
+                  "cases": [
+                    {
+                      "type": "SwitchCase",
+                      "tests": [
+                        {
+                          "type": "Literal",
+                          "literalType": "integer",
+                          "value": 144
+                        }
+                      ],
+                      "consequent": [
+                        {
+                          "type": "BreakStatement"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "SwitchCase",
+                      "tests": [],
+                      "consequent": [
+                        {
+                          "type": "EmptyStatement"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FunctionDeclaration",
+              "id": {
+                "type": "Identifier",
+                "value": "getcache"
+              },
+              "functionType": "list",
+              "params": [],
+              "body": [
+                {
+                  "type": "VariableDeclaration",
+                  "variableType": "list",
+                  "declarations": [
+                    {
+                      "type": "VariableDeclarator",
+                      "id": {
+                        "type": "Identifier",
+                        "value": "cached"
+                      },
+                      "init": {
+                        "type": "ListExpression",
+                        "elements": [
+                          {
+                            "type": "Literal",
+                            "literalType": "integer",
+                            "value": 1
+                          },
+                          {
+                            "type": "Literal",
+                            "literalType": "integer",
+                            "value": 2
+                          },
+                          {
+                            "type": "Literal",
+                            "literalType": "integer",
+                            "value": 3
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "ReturnStatement",
+                  "argument": {
+                    "type": "Identifier",
+                    "value": "cached"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": []
+}
