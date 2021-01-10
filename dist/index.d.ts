@@ -420,8 +420,8 @@ export interface BoxedMemberExpression extends BaseMemberExpression {
 export interface SliceExpression extends Node {
   type: 'SliceExpression'
   object: MemberSliceCallExpression
-  start: Expression
-  end: Expression
+  start?: Expression
+  end?: Expression
 }
 
 export interface IndexExpression extends Node {
