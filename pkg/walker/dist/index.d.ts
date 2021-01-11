@@ -139,3 +139,7 @@ export function findNodeAroundWithAncestors<TState> (
   baseVisitor?: RecursiveVisitors<TState>,
   state?: TState
 ): FindResultWithAncestors<TState> | undefined
+
+export interface RecursiveWalkError extends Error {
+  node: Node
+}

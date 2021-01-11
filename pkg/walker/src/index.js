@@ -126,9 +126,16 @@ export function fullAncestor (node, callbacks, baseVisitor, state) {
 
 export function recursive (node, functions, baseVisitor, state) {
   const visitor = functions ? make(functions, baseVisitor) : baseVisitor
-  return walk(node, null, state)
+  let lastNode
+  try {
+    return walk(node, null, state)
+  } catch (error) {
+    if (!error.node) error.node = lastNode
+    throw error
+  }
 
   function walk (node, parent, state) {
+    lastNode = node
     return visitor[node.type](node, state, walk)
   }
 }

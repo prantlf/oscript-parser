@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0
+
+If the recursive walker fails, include the latest visited node in the error.
+
 ## 0.0.3
 
 Skip omitted nodes for.init, slice.start and slice.end expressions during walking.

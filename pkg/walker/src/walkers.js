@@ -2,6 +2,8 @@ function ignore () {}
 
 export const base = {}
 
+// ---------- Program
+
 base.Program = (node, state, walk) => {
   walk(node.body, node, state)
 }
