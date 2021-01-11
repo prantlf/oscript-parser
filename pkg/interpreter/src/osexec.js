@@ -13,7 +13,7 @@ let silent = false
 let verbose = false
 let measure = false
 const defines = {}
-const options = { defines }
+const options = { defines, locations: true, ranges: true }
 let source, sourceType
 
 function usage () {
@@ -54,7 +54,7 @@ for (let i = 2, l = args.length; i < l; ++i) {
     const flag = match[2]
     switch (flag) {
       case 'w': case 'warnings':
-        considerWarnings = true
+        considerWarnings = options.warnings = true
         continue
       case 'context':
         context = match[1] !== 'no'
@@ -97,18 +97,18 @@ for (let i = 2, l = args.length; i < l; ++i) {
 }
 
 function run () {
-  let start
+  let start, ast
   try {
     options.sourceFile = source.name
     start = measure && performance.now()
-    const ast = parseText(source.code, options)
+    ast = parseText(source.code, options)
     const end = start && performance.now()
     let end2
     if (considerWarnings && ast.warnings.length) {
       if (!silent) printWarnings(process.stderr, source, ast.warnings, { context })
       process.exitCode = 1
     } else {
-      interpret(ast)
+      interpret(ast, options)
       end2 = start && performance.now()
     }
     if (start) {
@@ -118,7 +118,10 @@ function run () {
       process.stderr.write(`time: ${time}\n`)
     }
   } catch (error) {
-    if (!silent) printError(process.stderr, source, start, error, { context, verbose })
+    if (!silent) {
+      if (!error.warnings) error.warnings = ast && ast.warnings
+      printError(process.stderr, source, start, error, { context, verbose })
+    }
     process.exitCode = 1
   }
 }

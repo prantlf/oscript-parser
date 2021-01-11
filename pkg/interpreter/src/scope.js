@@ -30,7 +30,10 @@ export default class Scope {
 
   set (name, value) {
     const scope = this._findScope(name)
-    if (scope) scope.setOwn(name, value)
+    if (scope) {
+      scope.setOwn(name, value)
+      return true
+    }
   }
 
   _findScope (name) {

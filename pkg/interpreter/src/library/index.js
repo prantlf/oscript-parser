@@ -1,8 +1,13 @@
 /* eslint-disable camelcase */
 
+import { checkType } from './checks'
+import * as assoc from './assoc'
+import * as list from './list'
 import * as str from './str'
 import * as web from './web'
 
+export { assoc }
+export { list }
 export { str }
 export { web }
 
@@ -43,6 +48,7 @@ export function echoinfo (...args) {
 }
 
 export function echostamp (enable) {
+  checkType(enable, 'boolean', 1)
   stamp = enable
 }
 

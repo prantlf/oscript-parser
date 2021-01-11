@@ -3,8 +3,19 @@ import { bold, cyan } from 'colorette'
 // Formats an excerpt of the input text around the error location.
 
 export function formatErrorContext (error, input) {
-  const { line, column, offset, length } = error
-  if (!line) return
+  let { line, column, offset, length } = error
+  if (!line) {
+    const { node } = error
+    if (node) {
+      ({ line, column } = node.loc.start)
+      ++column
+      const [start, end] = node.range
+      offset = start
+      length = end - start
+    } else {
+      return
+    }
+  }
   const firstColumn = Math.max(0, column - 1 - 30)
   const lastColumn = column - 1 + 30
   const lineStart = offset - column + 1
@@ -37,11 +48,12 @@ export function colorizeErrorContext (text) {
   return text
     .split('\n')
     .map((line, index, lines) => {
-      if (replaced || index === lines.length - 1) return line
+      if (replaced) return line
       if (match) {
         replaced = true
         return match[1] + match[2] + bold(cyan(match[3]))
       }
+      if (index === lines.length - 1) return line
       match = /^(\s+\S )(\s*)(~+)$/.exec(lines[index + 1])
       if (match) {
         const lineEnd = line.length

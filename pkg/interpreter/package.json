@@ -1,6 +1,6 @@
 {
   "name": "oscript-interpreter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A interpreter of the OScript language using the abstract syntax tree (AST).",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
   "keywords": [
@@ -30,7 +30,7 @@
   "browser": "dist/index.umd.min.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "oscript-parser": "0.2.4",
-    "oscript-ast-walker": "0.0.3"
+    "oscript-parser": "0.2.5",
+    "oscript-ast-walker": "0.1.0"
   }
 }

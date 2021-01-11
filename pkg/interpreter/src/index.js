@@ -1,10 +1,10 @@
 import { recursive as recursiveWalk } from 'oscript-ast-walker'
-import interpreter from './interpreter'
-import optimize from './optimizer'
+import { visitors, setOptions } from './interpreter'
 import * as library from './library/index'
 import Scope from './scope'
 
-export function interpret (ast, globals = {}) {
-  const scope = new Scope(null, Object.assign({}, library, globals))
-  recursiveWalk(optimize(ast), null, interpreter, scope)
+export function interpret (ast, options = {}) {
+  setOptions(options)
+  const scope = new Scope(null, Object.assign({}, library, options.globals))
+  return recursiveWalk(ast, null, visitors, scope)
 }

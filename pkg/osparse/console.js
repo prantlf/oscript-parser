@@ -37,7 +37,14 @@ export function readSource (name, sourceType, options) {
 
 export function printError (output, source, start, error, { context, verbose } = {}) {
   const time = formatTime(start)
-  const { message, line, column, warnings } = error
+  let { message, line, column, warnings } = error
+  if (!line) {
+    const { node } = error
+    if (node) {
+      ({ line, column } = node.loc.start)
+      ++column
+    }
+  }
   output.write(`${source.name} ${bold(red('failed'))} with 1 error and ${formatWarningCount(warnings)}${time}\n`)
   const location = line ? `:${line}:${column}` : ''
   output.write(bold(white(`${source.name}${location}: `)) +

@@ -1,44 +1,53 @@
 /* eslint-disable camelcase */
 
+import { checkType, checkTypeOptional } from './checks'
+
 export const crlf = '\r\n'
-export const js_encodeuri = '\n'
-export const js_encodeuricomponent = '\t'
-export const js_escape = '\t'
+export const js_encodeuri = 1
+export const js_encodeuricomponent = 2
+export const js_escape = 3
 
 export function decodeforurl (text) {
+  checkType(text, 'string', 1)
   return decodeURI(text)
 }
 
 export function encodeforurl (text) {
+  checkType(text, 'string', 1)
   return encodeURI(text)
 }
 
 export function escape (text) {
+  checkType(text, 'string', 1)
   return encodeURIComponent(text)
 }
 
 export function escapeforjs (text, mode) {
-  return mode === js_escape
-    ? escape(text)
-    : mode === js_encodeuri
-      ? encodeURI(text)
-      : encodeURIComponent(text)
+  checkType(text, 'string', 1)
+  if (mode === js_escape) return escape(text)
+  if (mode === js_encodeuri) return encodeURI(text)
+  if (mode === js_encodeuricomponent) return encodeURIComponent(text)
+  throw new TypeError(`JS_ESCAPE, JS_ENCODEURI or JS_ENCODEURICOMPONENT expected, but ${typeof mode}" found in the second argument`)
 }
 
 export function escapehtml (text) {
+  checkType(text, 'string', 1)
   return text
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/</g, '&gt;')
 }
 
-export function escapejson (text, trim) {
+export function escapejson (text, trim = true) {
+  checkType(text, 'string', 1)
+  checkTypeOptional(text, 'boolean', 2)
   if (trim) text = text.trim()
   const string = JSON.stringify(text)
   return string.substr(1, string.length - 2)
 }
 
 export function escapexml (text) {
+  checkType(text, 'string', 1)
   return text
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -46,15 +55,20 @@ export function escapexml (text) {
     .replace(/'/g, '&apos;')
 }
 
-export function tojson (value, trim = true) {
-  return JSON.parse(trimStrings(value))
+export function tojson (text, trim = true) {
+  checkType(text, 'string', 1)
+  checkTypeOptional(text, 'boolean', 2)
+  // TODO: Trim all strings in the serialized output.
+  return JSON.parse(trimStrings(text))
 }
 
 export function unescape (text) {
+  checkType(text, 'string', 1)
   return decodeURIComponent(text)
 }
 
 export function unescapejson (text) {
+  checkType(text, 'string', 1)
   return JSON.parse(`"${text}}"`)
 }
 

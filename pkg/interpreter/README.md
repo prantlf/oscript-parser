@@ -28,7 +28,7 @@ yarn add  oscript-interpreter
 
 ## Interface
 
-**interpret**`(ast, globals)` interprets the `ast` and performs operations described by the nodes of the [AST]. The optional `globals` object can contain variables and functions which will be inserted to the global scope. Keys of the object are supposed to be identifiers and values are supposed to be variable values or functions.
+**interpret**`(ast, options)` interprets the `ast` and performs operations described by the nodes of the [AST]. The option `globals` can be an object with variables and functions which will be inserted to the global scope. Keys of the object are supposed to be identifiers and values are supposed to be variable values or functions.  The option `warnings` can be a boolean flag to enable treating problems, which the interpreter can recover from as errors and fail the ecxecution.
 
 ```js
 import { parseText } from 'oscript-parser'
