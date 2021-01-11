@@ -2,7 +2,7 @@ import * as tokenTypes from './tokens'
 import {
   isLineTerminator, isWhitespace, isDecimalDigit, isHexadecimalDigit,
   isIdentifierStart, isIdentifierPart, isKeyword, isType, isUnaryOperator,
-  isBinaryOperator
+  getOperatorPrecedence
 } from './detection'
 import ast from './ast'
 import messages from './messages'
@@ -372,7 +372,6 @@ function scanOtherToken (charCode, peekCharCode) {
       return scanPunctuator('&')
 
     case 94: // ^
-      if (peekCharCode === 94) return scanPunctuator('^^')
       if (peekCharCode === 61) return scanPunctuator('^=')
       return scanPunctuator('^')
 
@@ -1864,13 +1863,37 @@ function parseUnaryExpression () {
 function parseBinaryExpression () {
   const startToken = token
   let left = parseUnaryExpression()
-  for (;;) {
-    if (!(token.type & PunctuatorOrKeyword && isBinaryOperator(token.value))) return left
-    const operator = token.value
+  let operator, precedence, lastPrecedence
+  while ((token.type & PunctuatorOrKeyword) &&
+      (precedence = getOperatorPrecedence(operator = token.value))) {
     advanceToNextToken()
     const right = parseUnaryExpression()
-    left = placeNode(ast.binaryExpression(operator, left, right), startToken)
+    if (precedence < lastPrecedence) {
+      // If the current operation a higher priority than the previous one,
+      // the right operand from the previous operation has to be pulled to
+      // the current operation, which will exchange the nesting level of
+      // the two operations - the previous one will wrap the current one.
+      const { operator: prevOperator, left: prevLeft } = left
+      // Move the result of the current operation to be the left operand
+      // of the previous one.
+      left.operator = operator
+      // The (already exchanged) previous operation will work on its originally
+      // right operand and on the right operand of the current operation.
+      left.left = left.right
+      left.right = right
+      // Create another operation with the previous operator, the left operand
+      // from the previous operation and the right operand the previous
+      // (already exchanged) operation result.
+      left = placeNode(ast.binaryExpression(operator = prevOperator, prevLeft, left), startToken)
+    } else {
+      // If the current operation has the same or lower priority than
+      // the previous one, it can be applied to the result of the previous
+      // operation.
+      left = placeNode(ast.binaryExpression(operator, left, right), startToken)
+      lastPrecedence = precedence
+    }
   }
+  return left
 }
 
 // <Expression> ::=

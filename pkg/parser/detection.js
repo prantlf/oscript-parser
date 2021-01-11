@@ -138,25 +138,24 @@ function isUnaryOperator (symbol) {
   return false
 }
 
-function isBinaryOperator (symbol) {
-  switch (symbol.length) {
-    case 1:
-      return symbol === '=' || symbol === '+' || symbol === '-' ||
-        symbol === '*' || symbol === '/' || symbol === '<' || symbol === '>' ||
-        symbol === '%' || symbol === '&' || symbol === '|' || symbol === '^'
-    case 2:
-      return symbol === '==' || symbol === '!=' || symbol === '<>' ||
-        symbol === '<=' || symbol === '>=' || symbol === '&&' ||
-        symbol === '||' || symbol === 'in' || symbol === '+=' ||
-        symbol === '-=' || symbol === '*=' || symbol === '&=' ||
-        symbol === '|=' || symbol === '^=' || symbol === '^^' ||
-        symbol === '<<' || symbol === '>>' || symbol === 'or' ||
-        symbol === 'eq' || symbol === 'ne' || symbol === 'lt' ||
-        symbol === 'le' || symbol === 'gt' || symbol === 'ge'
-    case 3:
-      return symbol === 'and' || symbol === 'xor'
+function getOperatorPrecedence (symbol) {
+  switch (symbol) {
+    case '=': return 13
+    case '+': case '-': return 2
+    case '*': case '/': case '%': return 1
+    case '<': case '>': case '<=': case '>=': case 'lt': case 'le': case 'gt':
+    case 'ge': return 5
+    case '&': return 7
+    case '|': return 9
+    case '^': return 8
+    case '==': case '!=': case '<>': case 'eq': case 'ne': return 6
+    case '&&': case 'and': return 10
+    case '||': case 'or': return 12
+    case 'in': return 4
+    case '+=': case '-=': case '*=': case '&=': case '|=': case '^=': return 14
+    case '<<': case '>>': return 3
+    case 'xor': return 11
   }
-  return false
 }
 
 export {
@@ -169,5 +168,5 @@ export {
   isKeyword,
   isType,
   isUnaryOperator,
-  isBinaryOperator
+  getOperatorPrecedence
 }
