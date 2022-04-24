@@ -30,7 +30,9 @@
   "browser": "dist/index.umd.min.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "oscript-parser": "0.2.5",
-    "oscript-ast-walker": "0.1.0"
+    "@prantlf/gen-readlines": "1.1.0",
+    "fs-ext": "^2.0.0",
+    "oscript-ast-walker": "0.1.0",
+    "oscript-parser": "0.2.5"
   }
 }
