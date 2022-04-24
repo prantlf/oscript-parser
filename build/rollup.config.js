@@ -5,8 +5,9 @@ import { terser } from 'rollup-plugin-terser'
 const globals = { fs: 'fs', 'oscript-ast-walker': 'oscriptAstWalker' }
 const sourcemap = true
 const external = [
-  'colorette', 'fs', 'oscript-ast-walker', 'oscript-interpreter',
-  'oscript-parser', 'path', 'perf_hooks', 'tiny-glob/sync'
+  '@prantlf/gen-readlines', 'colorette', 'fs', 'fs-ext', 'os',
+  'oscript-ast-walker', 'oscript-interpreter', 'oscript-parser',
+  'path', 'perf_hooks', 'tiny-glob/sync'
 ]
 
 function library () {
