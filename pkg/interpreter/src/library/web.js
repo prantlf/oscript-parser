@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 
-import { checkType, checkTypeOptional } from './checks'
+import { checkType } from './checks'
 
 export const crlf = '\r\n'
 export const js_encodeuri = 1
@@ -40,7 +40,7 @@ export function escapehtml (text) {
 
 export function escapejson (text, trim = true) {
   checkType(text, 'string', 1)
-  checkTypeOptional(text, 'boolean', 2)
+  checkType(text, 'boolean', 2)
   if (trim) text = text.trim()
   const string = JSON.stringify(text)
   return string.substr(1, string.length - 2)
@@ -57,7 +57,7 @@ export function escapexml (text) {
 
 export function tojson (text, trim = true) {
   checkType(text, 'string', 1)
-  checkTypeOptional(text, 'boolean', 2)
+  checkType(text, 'boolean', 2)
   // TODO: Trim all strings in the serialized output.
   return JSON.parse(trimStrings(text))
 }
