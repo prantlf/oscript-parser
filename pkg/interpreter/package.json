@@ -1,6 +1,6 @@
 {
   "name": "oscript-interpreter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A interpreter of the OScript language using the abstract syntax tree (AST).",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantlf.tk/)",
   "keywords": [

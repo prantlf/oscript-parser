@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.2.0
+
+Add initial support for File.
+
 ## 0.1.0
 
 * Ignore the imaginary operator `^^`, recognise the existing one `||`.

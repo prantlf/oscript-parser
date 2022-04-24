@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.6
+
+Recognise lxe as a script extension
+
+### Interpreter 0.2.0
+
+Add initial support for File.
+
 ## 0.2.5
 
 ### Parser
