@@ -4,13 +4,13 @@ specifiers:
   '@prantlf/gen-readlines': 1.1.0
   fs-ext: ^2.0.0
   oscript-ast-walker: 0.1.0
-  oscript-parser: 0.2.5
+  oscript-parser: 0.2.6
 
 dependencies:
   '@prantlf/gen-readlines': 1.1.0
   fs-ext: 2.0.0
   oscript-ast-walker: 0.1.0
-  oscript-parser: 0.2.5
+  oscript-parser: 0.2.6
 
 packages:
 
@@ -19,8 +19,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /colorette/1.2.1:
-    resolution: {integrity: sha512-puCDz0CzydiSYOrnXpz/PKd69zRrribezjtE9yd4zvytoRc8+RY/KJPvtPFKZS3E3wP6neGyMe0vOTlHO5L3Pw==}
+  /colorette/2.0.16:
+    resolution: {integrity: sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==}
     dev: false
 
   /fs-ext/2.0.0:
@@ -48,17 +48,17 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /oscript-parser/0.2.5:
-    resolution: {integrity: sha512-d8r1fWb/yUSlFPSy6y2I50JSWjXOJza4X9kuS442LekRS07gpyOS2m7m1WbW1dowb1MKVku6tgDTjjrRpTzq+Q==}
+  /oscript-parser/0.2.6:
+    resolution: {integrity: sha512-Gmp24pl0d5vOc9NTqCx6vMeuQd9uBGgyUaILGrW0ZN508liX2G1MRsejimgVA7/DRLmfQwitUjTuxdrYD2Ey6Q==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      colorette: 1.2.1
-      tiny-glob: 0.2.8
+      colorette: 2.0.16
+      tiny-glob: 0.2.9
     dev: false
 
-  /tiny-glob/0.2.8:
-    resolution: {integrity: sha512-vkQP7qOslq63XRX9kMswlby99kyO5OvKptw7AMwBVMjXEI7Tb61eoI5DydyEMOseyGS5anDN1VPoVxEvH01q8w==}
+  /tiny-glob/0.2.9:
+    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
     dependencies:
       globalyzer: 0.1.0
       globrex: 0.1.2

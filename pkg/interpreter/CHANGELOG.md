@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.2.1
+
+Upgrade dependency on oscript-parser.
+
 ### 0.2.0
 
 Add initial support for File.
