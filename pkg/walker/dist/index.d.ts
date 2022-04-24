@@ -1,4 +1,4 @@
-import { Node, SourceLocation } from 'oscript-parser'
+import { Node, Position } from 'oscript-parser'
 
 export type SimplePreCallback<TState> = (
   node: Node,
@@ -126,7 +126,7 @@ export function make<TState> (
 
 export function findNodeAround<TState> (
   node: Node,
-  position: SourceLocation,
+  position: Position,
   test?: FindPredicates<TState> | FindPredicate<TState> | string,
   baseVisitor?: RecursiveVisitors<TState>,
   state?: TState
@@ -134,7 +134,7 @@ export function findNodeAround<TState> (
 
 export function findNodeAroundWithAncestors<TState> (
   node: Node,
-  position: SourceLocation,
+  position: Position,
   test?: FindPredicatesWithAncestors<TState> | FindPredicateWithAncestors<TState> | string,
   baseVisitor?: RecursiveVisitors<TState>,
   state?: TState

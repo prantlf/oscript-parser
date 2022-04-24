@@ -8,6 +8,10 @@ Recognise lxe as a script extension
 
 Add initial support for File.
 
+### Walker 0.1.1
+
+Fix typings for `findNodeAround` and `findNodeAroundWithAncestors`.
+
 ## 0.2.5
 
 ### Parser

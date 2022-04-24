@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+Fix typings for `findNodeAround` and `findNodeAroundWithAncestors`.
+
 ## 0.1.0
 
 If the recursive walker fails, include the latest visited node in the error.

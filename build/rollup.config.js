@@ -1,13 +1,14 @@
 import json from '@rollup/plugin-json'
 import cleanup from 'rollup-plugin-cleanup'
 import { terser } from 'rollup-plugin-terser'
+import builtins from 'builtin-modules'
 
 const globals = { fs: 'fs', 'oscript-ast-walker': 'oscriptAstWalker' }
 const sourcemap = true
 const external = [
-  '@prantlf/gen-readlines', 'colorette', 'fs', 'fs-ext', 'os',
+  '@prantlf/gen-readlines', 'colorette', 'fs-ext',
   'oscript-ast-walker', 'oscript-interpreter', 'oscript-parser',
-  'path', 'perf_hooks', 'tiny-glob/sync'
+  'tiny-glob/sync', ...builtins
 ]
 
 function library () {
