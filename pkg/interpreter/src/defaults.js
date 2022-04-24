@@ -3,6 +3,7 @@ import Regex from './library/regex'
 const defaults = {
   assoc () { return {} },
   boolean () { return false },
+  bytes () { return {} },
   integer () { return 0 },
   list () { return [] },
   long () { return 0 },
