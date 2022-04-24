@@ -40,9 +40,9 @@ ${bold(yellow('Options:'))}
 
 If no file name is provided, standard input will be read. If no source type
 is provided, it will be inferred from the file extension: ".os" -> object,
-".e" -> script, ".osx" -> dump. The source type object will enable the new
-OScript language and source type dump the old one by default.
-  
+".e|lxe" -> script, ".osx" -> dump. The source type object will enable the
+new OScript language and source type dump the old one by default.
+
 ${bold(yellow('Examples:'))}
   echo 'foo = "bar"' | oslint -S script
   oslint -p foo.os`)
@@ -90,6 +90,7 @@ for (let i = 2, l = args.length; i < l; ++i) {
       case 'V': case 'version':
         console.log(version)
         process.exit(0)
+        break
       case 'h': case 'help':
         usage()
     }

@@ -142,8 +142,8 @@ Options:
 
 If no file name is provided, standard input will be read. If no source type
 is provided, it will be inferred from the file extension: ".os" -> object,
-".e" -> script, ".osx" -> dump. The source type object will enable the new
-OScript language and source type dump the old one by default.
+".e|lxe" -> script, ".osx" -> dump. The source type object will enable the
+new OScript language and source type dump the old one by default.
 
 Examples:
   echo 'foo = "bar"' | osparse --no-comments -S script
@@ -186,8 +186,8 @@ Options:
 
 If no file name is provided, standard input will be read. If no source type
 is provided, it will be inferred from the file extension: ".os" -> object,
-".e" -> script, ".osx" -> dump. The source type object will enable the new
-OScript language and source type dump the old one by default.
+".e|lxe" -> script, ".osx" -> dump. The source type object will enable the
+new OScript language and source type dump the old one by default.
 
 Examples:
   echo 'foo = "bar"' | oslint -S script
@@ -235,7 +235,7 @@ All output of `oslint` goes to standard output. For `osparse`, the result AST go
 
 ## License
 
-Copyright (c) 2020-2021 Ferdinand Prantl
+Copyright (c) 2020-2022 Ferdinand Prantl
 
 Licensed under the MIT license.
 

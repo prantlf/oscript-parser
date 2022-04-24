@@ -29,7 +29,7 @@ export function readSource (name, sourceType, options) {
     switch (ext) {
       case '.os': options.sourceType = 'object'; break
       case '.osx': options.sourceType = 'dump'; break
-      case '.e': options.sourceType = 'script'; break
+      case '.e': case '.lxe': options.sourceType = 'script'; break
     }
   }
   return source

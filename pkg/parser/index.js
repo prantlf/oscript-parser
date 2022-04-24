@@ -218,7 +218,7 @@ function getTokenFromInput () {
             warnings.push(createErrorForToken({
               type: Whitespace,
               line,
-              lineStart: lineStart,
+              lineStart,
               lastLine: line,
               lastLineStart: lineStart,
               range: [offset, offset + 1]

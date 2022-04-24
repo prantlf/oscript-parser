@@ -335,8 +335,8 @@ visitors.CallExpression = (node, scope, walk) => {
     const value = values[index]
     args[param.id.value] = value === undefined
       ? param.init
-          ? walk(param.init, node, scope)
-          : getDefaultValue(param.parameterType)
+        ? walk(param.init, node, scope)
+        : getDefaultValue(param.parameterType)
       : value
     return args
   }, {})
