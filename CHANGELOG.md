@@ -8,6 +8,12 @@ Recognise lxe as a script extension
 
 Add initial support for File.
 
+### Interpreter 0.3.0
+
+Temporarily remove functions `eof` and `seek`. The `fs-ext` extension with a native library does not run in the latest VS Code
+
+**BREAKING CHANGE**: If you used `eof` or `seek`, your code will not work any more. You have to remove calls to those functions.
+
 ### Walker 0.1.1
 
 Fix typings for `findNodeAround` and `findNodeAroundWithAncestors`.

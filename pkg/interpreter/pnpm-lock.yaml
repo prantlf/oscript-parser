@@ -2,13 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   '@prantlf/gen-readlines': 1.1.0
-  fs-ext: ^2.0.0
   oscript-ast-walker: 0.1.0
   oscript-parser: 0.2.6
 
 dependencies:
   '@prantlf/gen-readlines': 1.1.0
-  fs-ext: 2.0.0
   oscript-ast-walker: 0.1.0
   oscript-parser: 0.2.6
 
@@ -23,24 +21,12 @@ packages:
     resolution: {integrity: sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==}
     dev: false
 
-  /fs-ext/2.0.0:
-    resolution: {integrity: sha512-aK8NlpSO5LUdSoWeshpnkgtptbua1rGo58Wc+mHQ2+JnoBlubMTsnV56Swl4bA0msrgAhG8TDu1aGS8deJwzBQ==}
-    engines: {node: '>= 8.0.0'}
-    requiresBuild: true
-    dependencies:
-      nan: 2.14.2
-    dev: false
-
   /globalyzer/0.1.0:
     resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
     dev: false
 
   /globrex/0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
-    dev: false
-
-  /nan/2.14.2:
-    resolution: {integrity: sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==}
     dev: false
 
   /oscript-ast-walker/0.1.0:

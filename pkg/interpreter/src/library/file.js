@@ -4,7 +4,7 @@ import {
   closeSync, existsSync, fstatSync, fsyncSync, openSync, readdirSync,
   readSync, renameSync, statSync, unlinkSync, writeSync
 } from 'fs'
-import { seekSync } from 'fs-ext'
+// import { seekSync } from 'fs-ext'
 import { EOL } from 'os'
 import readlines from '@prantlf/gen-readlines'
 import { basename, dirname, extname, resolve, sep } from 'path'
@@ -107,17 +107,17 @@ export function dir (name) {
   }
 }
 
-export function eof (file) {
-  checkType(file, 'object', 1)
-  const { fd } = checkFile(file)
-  try {
-    let stats = file.stats
-    if (!stats) stats = file.stats = fstatSync(fd)
-    return stats.size === seekSync(fd, 0, 1)
-  } catch (error) {
-    return error
-  }
-}
+// export function eof (file) {
+//   checkType(file, 'object', 1)
+//   const { fd } = checkFile(file)
+//   try {
+//     let stats = file.stats
+//     if (!stats) stats = file.stats = fstatSync(fd)
+//     return stats.size === seekSync(fd, 0, 1)
+//   } catch (error) {
+//     return error
+//   }
+// }
 
 export function exists (name) {
   checkType2(name, 'string', 'object', 1)
@@ -247,21 +247,21 @@ export function rename (oldName, newName) {
   }
 }
 
-export function rewind (file) {
-  seek(file, 0)
-  return true
-}
+// export function rewind (file) {
+//   seek(file, 0)
+//   return true
+// }
 
-export function seek (file, position) {
-  checkType(file, 'object', 1)
-  const { fd } = checkFile(file)
-  checkType(position, 'number', 2)
-  try {
-    return seekSync(fd, position, 0)
-  } catch (error) {
-    return error
-  }
-}
+// export function seek (file, position) {
+//   checkType(file, 'object', 1)
+//   const { fd } = checkFile(file)
+//   checkType(position, 'number', 2)
+//   try {
+//     return seekSync(fd, position, 0)
+//   } catch (error) {
+//     return error
+//   }
+// }
 
 export function separator () {
   return sep

@@ -1,10 +1,16 @@
 # Changelog
 
-### 0.2.1
+## 0.3.0
+
+Temporarily remove functions `eof` and `seek`. The `fs-ext` extension with a native library does not run in the latest VS Code
+
+**BREAKING CHANGE**: If you used `eof` or `seek`, your code will not work any more. You have to remove calls to those functions.
+
+## 0.2.1
 
 Upgrade dependency on oscript-parser.
 
-### 0.2.0
+## 0.2.0
 
 Add initial support for File.
 
