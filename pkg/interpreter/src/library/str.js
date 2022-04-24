@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* globals atob, btoa */
 
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import {
   checkType, checkTypeOptional, checkType2, checkList, checkQuote
 } from './checks'
@@ -105,7 +105,11 @@ export function elements (text, delimiter) {
 
 export function filetostring (name) {
   checkType(name, 'string', 1)
-  return readFileSync(name, 'utf8')
+  try {
+    return readFileSync(name, 'utf8')
+  } catch (error) {
+    return error
+  }
 }
 
 export function format (format, ...args) {
@@ -199,9 +203,20 @@ export function spn (text, chars) {
   return match ? match[0].length : 0
 }
 
-export function string (value, raw) {
-  checkTypeOptional(raw, 'boolean', 2)
+export function string (value, raw = false) {
+  checkType(raw, 'boolean', 2)
   return !raw && value instanceof Error ? value.message : valuetostring(value)
+}
+
+export function stringtofile (name, content) {
+  checkType(name, 'string', 1)
+  checkType(content, 'string', 1)
+  try {
+    writeFileSync(name, content)
+    return true
+  } catch (error) {
+    return error
+  }
 }
 
 export function stringtointegher (text) {

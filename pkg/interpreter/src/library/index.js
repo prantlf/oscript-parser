@@ -2,11 +2,13 @@
 
 import { checkType } from './checks'
 import * as assoc from './assoc'
+import * as file from './file'
 import * as list from './list'
 import * as str from './str'
 import * as web from './web'
 
 export { assoc }
+export { file }
 export { list }
 export { str }
 export { web }
